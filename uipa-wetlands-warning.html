@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1,515 Signatures — What UIPA Was Warned About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1815; --paper:#eee9e0; --paper-2:#e4ddd0;
+    --maroon:#7a1f35; --maroon-deep:#571526; --brass:#9c7c33;
+    --line:#c9c0ac; --void:#0f0d0c; --void-2:#171310; --paper-on-void:#e9e2d3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--paper); color:var(--ink); font-family:'Source Sans 3', sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--maroon); color:var(--paper); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+
+  header.masthead{ padding:96px 0 72px; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--maroon); display:inline-block; }
+  h1.title{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(38px, 6.4vw, 62px); line-height:1.05; letter-spacing:-0.01em; }
+  h1.title em{ font-style:italic; font-weight:500; color:var(--maroon); }
+  .dek{ font-size:19px; color:#4a443d; max-width:58ch; margin-top:22px; }
+  .byline{ margin-top:34px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:#7a7264; letter-spacing:.03em; }
+
+  .glossary{ margin-top:36px; border:1px solid var(--line); background:#fbf8f2; }
+  .glossary-row{ display:grid; grid-template-columns:110px 1fr; gap:20px; padding:16px 22px; border-bottom:1px solid var(--line); align-items:baseline; }
+  .glossary-row:last-child{ border-bottom:none; }
+  .glossary-row .term{ font-family:'IBM Plex Mono', monospace; font-size:14px; font-weight:500; color:var(--maroon); }
+  .glossary-row .def{ font-size:14.5px; color:#2a251f; }
+  .glossary-row .def strong{ color:var(--ink); font-weight:600; }
+  @media (max-width:560px){ .glossary-row{ grid-template-columns:1fr; gap:4px; } }
+
+  .move-divider{ padding:56px 0 8px; }
+  .move-divider .move-label{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:14px; }
+  .move-divider .move-label::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .move-divider h2.big{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(30px, 5vw, 44px); line-height:1.08; margin-top:16px; max-width:22ch; }
+
+  section{ padding:60px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); margin-bottom:14px; }
+  h2{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(26px, 4vw, 34px); line-height:1.15; margin-bottom:20px; max-width:26ch; }
+  p{ margin-bottom:16px; max-width:64ch; color:#2a251f; }
+  p.lede{ font-size:19px; color:var(--ink); }
+
+  /* Big number panel */
+  section.void.num-panel{ background:var(--void); color:var(--paper-on-void); padding:120px 0; }
+  .num-panel .wrap{ text-align:center; }
+  .num-panel .kicker{ color:var(--brass); }
+  .big-number{ font-family:'Fraunces', serif; font-weight:300; font-size:clamp(100px, 22vw, 200px); line-height:.9; color:var(--paper-on-void); letter-spacing:-0.02em; opacity:0; transform:translateY(18px); transition:opacity 1.1s ease, transform 1.1s ease; }
+  .big-number.in{ opacity:1; transform:translateY(0); }
+  .num-cap{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#a89e8a; margin-top:8px; }
+  .num-panel p{ color:#c9c0ac; max-width:52ch; margin:26px auto 0; text-align:left; }
+  .void-rule{ width:52px; height:1px; background:var(--maroon); margin:34px auto 0; }
+
+  /* Map card */
+  .map-card{ margin-top:36px; border:1px solid var(--line); background:#fbf8f2; padding:32px 28px; }
+  .map-row{ display:flex; align-items:center; justify-content:center; gap:0; text-align:center; }
+  .map-side{ flex:1; }
+  .map-side .wma-name{ font-family:'Fraunces', serif; font-weight:600; font-size:16.5px; color:var(--maroon-deep); line-height:1.3; }
+  .map-side .wma-label{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--brass); text-transform:uppercase; letter-spacing:.06em; margin-top:6px; }
+  .map-center{ padding:0 20px; }
+  .map-center .site-box{ border:1.5px dashed var(--maroon); padding:14px 18px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--maroon); text-transform:uppercase; letter-spacing:.05em; }
+  .map-arrow{ font-family:'Fraunces', serif; font-size:22px; color:var(--line); }
+  @media (max-width:560px){ .map-row{ flex-direction:column; gap:18px; } .map-arrow{ transform:rotate(90deg); } }
+
+  /* Document card */
+  .doc-card{ margin-top:36px; border:1px solid var(--line); background:#fbf8f2; box-shadow:0 1px 0 var(--line); position:relative; overflow:hidden; }
+  .doc-card .doc-head{ display:flex; justify-content:space-between; align-items:baseline; padding:18px 24px; border-bottom:1px dashed var(--line); font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; letter-spacing:.04em; }
+  .doc-card .doc-num{ color:var(--maroon); font-weight:500; }
+  .doc-body{ padding:28px 24px 32px; }
+  .doc-quote{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:20px; line-height:1.5; color:var(--maroon-deep); max-width:48ch; }
+  .doc-cite{ margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; }
+
+  /* Countdown panel */
+  section.void.quote-panel{ background:var(--void-2); color:var(--paper-on-void); padding:100px 0; }
+  .quote-panel .kicker{ color:var(--brass); }
+  .quote-panel h2{ color:var(--paper-on-void); max-width:28ch; }
+  .quote-panel p{ color:#c9c0ac; max-width:60ch; }
+  .void-quote{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:22px; line-height:1.55; color:var(--paper-on-void); max-width:54ch; margin:26px 0; }
+  .void-cite{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#a89e8a; }
+  .day-count{ display:inline-block; font-family:'Fraunces', serif; font-weight:300; font-size:56px; color:var(--brass); line-height:1; margin-bottom:8px; }
+  .day-cap{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#a89e8a; margin-bottom:30px; }
+
+  /* Stat strip */
+  .stat-strip{ margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:560px){ .stat-strip{ grid-template-columns:1fr; } }
+  .stat{ background:var(--paper); padding:26px 24px; }
+  .stat .num{ font-family:'Fraunces', serif; font-weight:600; font-size:30px; color:var(--maroon-deep); }
+  .stat .lab{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#7a7264; margin-top:6px; letter-spacing:.03em; }
+  .stat .sub{ font-size:13px; color:#7a7264; margin-top:6px; }
+
+  footer{ padding:40px 0 96px; }
+  .colophon{ margin-top:20px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8a8272; line-height:1.8; }
+
+  @media (prefers-reduced-motion: reduce){ .big-number{ transition:none; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">The Weber County Hive — UIPA Investigation Series</div>
+    <h1 class="title">What They Were <em>Warned</em> About</h1>
+    <p class="dek">Before the West Weber Inland Port was adopted, more than 1,500 people signed a petition against it, a retired environmental engineer asked directly for a delay, and the project's own review gave the land's Tribal history a single sentence. None of it changed the outcome.</p>
+    <div class="byline">THE WEBER COUNTY HIVE — UIPA WETLANDS SERIES</div>
+
+    <div class="glossary">
+      <div class="glossary-row"><div class="term">UIPA</div><div class="def"><strong>Utah Inland Port Authority</strong> — the state agency that adopted the West Weber Project Area Plan.</div></div>
+      <div class="glossary-row"><div class="term">WMA</div><div class="def"><strong>Waterfowl Management Area</strong> — state-managed land set aside for migratory bird habitat.</div></div>
+      <div class="glossary-row"><div class="term">GSL</div><div class="def"><strong>Great Salt Lake</strong> — the terminal body of water the Weber River feeds into, along with the project site's wetlands.</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap move-divider">
+  <div class="move-label">The Site</div>
+  <h2 class="big">Between two bird refuges</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">The proposed project area doesn't sit near wetlands in the abstract. It sits in the specific gap between two named, state-managed waterfowl habitats, on the Weber River itself.</p>
+
+    <div class="map-card">
+      <div class="map-row">
+        <div class="map-side">
+          <div class="wma-name">Harold S. Crane<br>Waterfowl Management Area</div>
+          <div class="wma-label">West</div>
+        </div>
+        <div class="map-arrow">&larr;</div>
+        <div class="map-center">
+          <div class="site-box">West Weber<br>Project Area<br>8,993 ac</div>
+        </div>
+        <div class="map-arrow">&rarr;</div>
+        <div class="map-side">
+          <div class="wma-name">Ogden Bay<br>Waterfowl Management Area</div>
+          <div class="wma-label">East</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:24px;">A public petition made this comparison directly: developers of a 1,300-acre project area in Tooele County estimated over 50,000 additional vehicle trips per day. Weber County's proposed footprint was nearly seven times larger.</p>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">One Sentence</div>
+  <h2 class="big">What the Plan says about Tribal lands</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">UIPA's own Project Area Plan requires an environmental review covering "Historical and Cultural Resources including Tribal Lands." For West Weber, here is that finding in its entirety.</p>
+
+    <div class="doc-card">
+      <div class="doc-head"><span>WEST WEBER PROJECT AREA PLAN</span><span class="doc-num">CULTURAL RESOURCES</span></div>
+      <div class="doc-body">
+        <div class="doc-quote">&ldquo;Northwestern Band of the Shoshone Nation is located in the vicinity of the project area.&rdquo;</div>
+        <div class="doc-cite">— The complete tribal-lands finding, West Weber Project Area Plan</div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px;">That single sentence is the entire tribal review. By comparison, wetlands and wildlife receive several pages of the same document, with specific buffer requirements, species lists, and dedicated funding.</p>
+    <p>A separate federal filing offers a useful contrast. PacifiCorp's licensing consultation for its Pioneer Hydroelectric Project &mdash; a different facility, in the same county &mdash; names four tribes with potential cultural or religious connection to the land (Northwestern Shoshone, Ute, Goshute, and Paiute), and sends direct written notice to each tribal chair by name. West Weber's own review names one tribe, once, with no documented direct notice.</p>
+    <p>The tribe's own Vice Chairman, Brad Parry, was quoted specifically on West Weber in a March 2025 report &mdash; and his account draws a precise distinction worth having exactly right: UIPA asked about cultural resources, but did not consult on wetlands specifically. That's a narrower gap than "no outreach at all," and it's worth stating precisely rather than overstating it.</p>
+    <p style="font-size:14.5px; color:#4a443d;">Fairness note: an earlier claim that UIPA "hides" or omits this history from its own review does not hold up &mdash; the Plan contains a dedicated Cultural Resources and Tribal Lands section that discloses the tribe's proximity directly, by name. What's thin here is the depth of consultation and detail, not disclosure itself. The tribal contact of record is Chairman Dennis Alex, elected April 2020.</p>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">The Species List</div>
+  <h2 class="big">What's already there</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">The Plan's own environmental review identifies specific species already using this land &mdash; not hypothetical habitat, but documented presence within a two-mile radius of the project boundary.</p>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">2</div>
+        <div class="lab">THREATENED SPECIES ON-SITE</div>
+        <div class="sub">Yellow-billed Cuckoo &amp; Ute Ladies'-tresses</div>
+      </div>
+      <div class="stat">
+        <div class="num">9</div>
+        <div class="lab">"SPECIES OF GREATEST CONSERVATION NEED"</div>
+        <div class="sub">Per Utah DWR, within 2 miles of the boundary</div>
+      </div>
+    </div>
+    <p style="margin-top:24px;">Among the nine: American White Pelican, Bald Eagle, Caspian Tern, Kit Fox, Northern Leopard Frog, Peregrine Falcon, Snowy Plover, White-faced Ibis, and Winged Floater. Wilson's Phalarope, also found here, is currently petitioned for federal Endangered Species Act listing.</p>
+    <p style="font-size:14.5px; color:#4a443d;">The Plan's own review adds two more findings: Weber County sits in serious nonattainment for PM2.5 and moderate nonattainment for 8-hour ozone, and the project area carries a 1% annual chance flood hazard &mdash; both cited directly from federal data in the Plan itself.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">What we checked and could not confirm</div>
+    <h2>Two open items, stated plainly</h2>
+    <p>This investigation began with a claim that the project was built on Native American burial grounds. No source has been found documenting a specific burial site on this footprint &mdash; that claim remains unverified, and it is not repeated here as fact.</p>
+    <p>Separately, sources disagree on distance: the Plan states the tribe's location as roughly 20 miles northeast of the project area; a March 2025 report puts tribal headquarters roughly 7 miles east. The discrepancy likely reflects two different reference points &mdash; a regional office versus tribal headquarters &mdash; rather than an error in either source, and it remains unreconciled.</p>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">April 29, 2024</div>
+  <h2 class="big">The petition</h2>
+</div>
+
+<section class="void num-panel">
+  <div class="wrap">
+    <div class="kicker">Delivered to the board, by name</div>
+    <div class="big-number" id="bigNum">1,515</div>
+    <div class="num-cap">Signatures, 10% from Weber County residents</div>
+    <div class="void-rule"></div>
+    <p>Addressed directly to every board and staff member by name: Chair Abby Osborne, Senator Jerry Stevenson, Representative Jefferson Moss, Ryan Starks, Jonathan Freedman, Council Member Petro, Bill Wyatt, and Joel Ferry.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">From the petition itself</div>
+    <h2>What it asked for</h2>
+
+    <div class="doc-card">
+      <div class="doc-head"><span>PETITION TO THE UIPA BOARD</span><span class="doc-num">APRIL 29, 2024</span></div>
+      <div class="doc-body">
+        <div class="doc-quote">&ldquo;We have many concerns about the two proposed Inland Port Project Areas in Weber County between the Harold S. Crane Waterfowl Management Area and the Ogden Bay Waterfowl Management Area, and on the Weber River. We ask that you oppose creating these project areas.&rdquo;</div>
+        <div class="doc-cite">— Petition delivered to the UIPA Board, signed by 1,515 people</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">$1.8B&ndash;$7.2B</div>
+        <div class="lab">STATEWIDE ANNUAL HEALTH COST OF AIR POLLUTION</div>
+        <div class="sub">Per a BYU study cited in the petition</div>
+      </div>
+      <div class="stat">
+        <div class="num">~7x</div>
+        <div class="lab">LARGER THAN THE TOOELE COUNTY COMPARISON PROJECT</div>
+        <div class="sub">8,993 acres vs. 1,300 acres</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">May 16, 2024</div>
+  <h2 class="big">The engineer's letter</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">Four days before the vote, a retired environmental engineer wrote directly to UIPA's executive director. Not a form letter &mdash; a technical letter from someone with a specific, relevant career: ten years managing environmental contracts for Kennecott, the first LEED-accredited professional in Utah.</p>
+
+    <div class="doc-card">
+      <div class="doc-head"><span>LETTER TO BEN HART, UIPA EXECUTIVE DIRECTOR</span><span class="doc-num">MAY 16, 2024</span></div>
+      <div class="doc-body">
+        <div class="doc-quote">&ldquo;Please exercise your awareness of these values by removing consideration of the Weber County Utah Inland Port from the agenda of the May 20, 2024 UIPA Meeting.&rdquo;</div>
+        <div class="doc-cite">— Ivan Weber, Weber Sustainability Consulting</div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px;">His letter raised a second, separate claim worth checking directly: that a photo on UIPA's own website, presented as representing the project area's wetlands, actually shows Phragmites &mdash; an invasive reed that displaces the native plants wildlife depend on.</p>
+  </div>
+</section>
+
+<section class="void quote-panel">
+  <div class="wrap">
+    <div class="kicker">What happened next</div>
+    <div class="day-count">4</div>
+    <div class="day-cap">days between the letter and the vote</div>
+    <h2>The agenda item wasn't removed</h2>
+    <p>On May 20, 2024, the UIPA Board adopted the West Weber Project Area Plan. The petition, the letter, and the request to delay all came before the vote. None of them changed its outcome.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="max-width:60ch;">None of this proves the board acted in bad faith &mdash; boards routinely receive opposition on projects that ultimately move forward. What the record does show is that the volume and specificity of the warnings were real: over 1,500 named signatures, a technical letter from a career environmental engineer, and a direct, dated request to simply wait. The vote happened on schedule anyway.</p>
+
+    <div class="colophon">
+      SOURCES: UIPA Board Meeting Minutes, April 29, 2024 and May 20, 2024 (utah.gov/pmn) &middot; Petition delivered to the UIPA Board, April 29, 2024 &middot; Letter from Ivan Weber to Ben Hart, May 16, 2024.<br>
+      THE WEBER COUNTY HIVE
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bn = document.getElementById('bigNum');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ bn.classList.add('in'); } });
+  }, {threshold:0.4});
+  obs.observe(bn);
+</script>
+
+</body>
+</html>

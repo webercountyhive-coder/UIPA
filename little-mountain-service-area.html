@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Mountain Service Area — The Origin, the Triple Role, and the Developer on the Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1815; --paper:#eee9e0; --paper-2:#e4ddd0;
+    --maroon:#7a1f35; --maroon-deep:#571526; --brass:#9c7c33;
+    --line:#c9c0ac; --void:#0f0d0c; --void-2:#171310; --paper-on-void:#e9e2d3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--paper); color:var(--ink); font-family:'Source Sans 3', sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--maroon); color:var(--paper); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+
+  header.masthead{ padding:96px 0 72px; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--maroon); display:inline-block; }
+  h1.title{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(38px, 6.2vw, 60px); line-height:1.06; letter-spacing:-0.01em; }
+  h1.title em{ font-style:italic; font-weight:500; color:var(--maroon); }
+  .dek{ font-size:19px; color:#4a443d; max-width:58ch; margin-top:22px; }
+  .byline{ margin-top:34px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:#7a7264; letter-spacing:.03em; }
+
+  /* Movement dividers — replace "Part" labels with numbered movements */
+  .move-divider{ padding:64px 0 8px; }
+  .move-divider .move-label{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:14px; }
+  .move-divider .move-label::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .move-divider h2.big{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(30px, 5vw, 44px); line-height:1.08; margin-top:16px; max-width:22ch; }
+
+  section{ padding:60px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  .kicker{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--brass); margin-bottom:14px; }
+  h2{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(26px, 4vw, 34px); line-height:1.15; margin-bottom:20px; max-width:26ch; }
+  p{ margin-bottom:16px; max-width:64ch; color:#2a251f; }
+  p.lede{ font-size:19px; color:var(--ink); }
+
+  /* Document card */
+  .doc-card{ margin-top:36px; border:1px solid var(--line); background:#fbf8f2; box-shadow:0 1px 0 var(--line); position:relative; overflow:hidden; }
+  .doc-card .doc-head{ display:flex; justify-content:space-between; align-items:baseline; padding:18px 24px; border-bottom:1px dashed var(--line); font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; letter-spacing:.04em; }
+  .doc-card .doc-num{ color:var(--maroon); font-weight:500; }
+  .doc-body{ padding:28px 24px 32px; }
+  .doc-quote{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:21px; line-height:1.45; color:var(--maroon-deep); max-width:44ch; }
+  .doc-cite{ margin-top:14px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; }
+  .doc-row{ display:flex; justify-content:space-between; gap:20px; padding:10px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .doc-row:last-child{ border-bottom:none; }
+  .doc-row .label{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#7a7264; text-transform:uppercase; letter-spacing:.04em; padding-top:2px; }
+  .doc-row .value{ text-align:right; max-width:60%; font-weight:500; }
+  .doc-row .value.flag{ color:var(--maroon); }
+  .seal{ position:absolute; top:20px; right:22px; width:64px; height:64px; border:1.5px solid var(--maroon); border-radius:50%; display:flex; align-items:center; justify-content:center; transform:rotate(-9deg); opacity:.55; }
+  .seal-inner{ font-family:'IBM Plex Mono', monospace; font-size:9px; letter-spacing:.08em; text-align:center; color:var(--maroon); line-height:1.2; }
+
+  /* ZERO panel */
+  section.void.zero-panel{ background:var(--void); color:var(--paper-on-void); padding:120px 0; }
+  .zero-panel .wrap{ text-align:center; }
+  .zero-panel .kicker{ color:var(--brass); }
+  .zero-figure{ font-family:'Fraunces', serif; font-weight:300; font-size:clamp(160px, 34vw, 320px); line-height:.85; color:var(--paper-on-void); letter-spacing:-0.02em; opacity:0; transform:translateY(18px); transition:opacity 1.1s ease, transform 1.1s ease; }
+  .zero-figure.in{ opacity:1; transform:translateY(0); }
+  .zero-cap{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; color:#a89e8a; margin-top:8px; }
+  .zero-panel p{ color:#c9c0ac; max-width:46ch; margin:26px auto 0; text-align:left; }
+  .void-rule{ width:52px; height:1px; background:var(--maroon); margin:34px auto 0; }
+
+  /* Roster */
+  .roster{ margin-top:34px; border-top:1px solid var(--line); }
+  .roster-row{ display:grid; grid-template-columns:1fr 2fr 1fr; gap:18px; padding:20px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+  .roster-row .name{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; }
+  .roster-row .term{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; }
+  .roster-row .note{ font-size:14px; color:var(--maroon); font-weight:500; text-align:right; }
+  @media (max-width:560px){ .roster-row{ grid-template-columns:1fr; gap:4px; } .roster-row .note{ text-align:left; } }
+
+  /* Timeline */
+  .tl{ margin-top:40px; position:relative; }
+  .tl::before{ content:""; position:absolute; left:148px; top:6px; bottom:6px; width:1px; background:var(--line); }
+  @media (max-width:620px){ .tl::before{ left:78px; } }
+  .tl-item{ display:grid; grid-template-columns:148px 1fr; gap:0 28px; padding:0 0 40px; position:relative; }
+  @media (max-width:620px){ .tl-item{ grid-template-columns:78px 1fr; } }
+  .tl-item:last-child{ padding-bottom:0; }
+  .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--maroon); font-weight:500; padding-top:2px; padding-right:22px; text-align:right; white-space:nowrap; line-height:1.5; }
+  @media (max-width:620px){ .tl-date{ font-size:10.5px; padding-right:16px; } }
+  .tl-dot{ position:absolute; left:143px; top:5px; width:11px; height:11px; border-radius:50%; background:var(--paper); border:2px solid var(--maroon); }
+  @media (max-width:620px){ .tl-dot{ left:73px; } }
+  .tl-body h3{ font-family:'Fraunces', serif; font-weight:600; font-size:17px; line-height:1.35; margin-bottom:6px; }
+  .tl-body .who{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#7a7264; margin-bottom:8px; }
+  .tl-body .sig{ font-size:14.5px; color:#4a443d; border-left:2px solid var(--brass); padding-left:12px; }
+  .tl-item.hot .tl-dot{ background:var(--maroon); }
+  .tl-item.hot h3{ color:var(--maroon-deep); }
+
+  /* Void quote panels (pivot + triple role) */
+  section.void.quote-panel{ background:var(--void-2); color:var(--paper-on-void); padding:100px 0; }
+  .quote-panel .kicker{ color:var(--brass); }
+  .quote-panel h2{ color:var(--paper-on-void); max-width:28ch; }
+  .quote-panel p{ color:#c9c0ac; max-width:60ch; }
+  .void-quote{ font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:22px; line-height:1.55; color:var(--paper-on-void); max-width:54ch; margin:26px 0; }
+  .void-cite{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#a89e8a; }
+  .void-note{ margin-top:30px; padding-top:26px; border-top:1px solid #3a332a; }
+  .day-count{ display:inline-block; font-family:'Fraunces', serif; font-weight:300; font-size:52px; color:var(--brass); line-height:1; margin-bottom:8px; }
+  .day-cap{ font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#a89e8a; margin-bottom:28px; }
+
+  /* Three-hat element */
+  .hats{ margin-top:44px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; border:1px solid var(--line); }
+  @media (max-width:640px){ .hats{ grid-template-columns:1fr; } }
+  .hat{ padding:30px 24px; border-right:1px solid var(--line); position:relative; background:#fbf8f2; }
+  .hat:last-child{ border-right:none; }
+  @media (max-width:640px){ .hat{ border-right:none; border-bottom:1px solid var(--line); } .hat:last-child{ border-bottom:none; } }
+  .hat .num{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--brass); letter-spacing:.1em; margin-bottom:10px; }
+  .hat h3{ font-family:'Fraunces', serif; font-weight:600; font-size:19px; line-height:1.3; margin-bottom:10px; color:var(--maroon-deep); }
+  .hat p{ font-size:14.5px; color:#4a443d; max-width:none; margin-bottom:0; }
+  .hats-center{ text-align:center; margin-top:22px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--maroon); letter-spacing:.06em; }
+
+  /* Stat strip */
+  .stat-strip{ margin-top:36px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:560px){ .stat-strip{ grid-template-columns:1fr; } }
+  .stat{ background:var(--paper); padding:26px 24px; }
+  .stat .num{ font-family:'Fraunces', serif; font-weight:600; font-size:32px; color:var(--maroon-deep); }
+  .stat .lab{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#7a7264; margin-top:6px; letter-spacing:.03em; }
+  .stat .sub{ font-size:13px; color:#7a7264; margin-top:6px; }
+
+  /* Profile badges */
+  .badges{ margin-top:40px; display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .badge{ background:#fbf8f2; padding:22px 24px; display:grid; grid-template-columns:34px 1fr; gap:16px; align-items:start; }
+  .badge .mk{ font-family:'Fraunces', serif; font-weight:600; font-size:20px; color:var(--maroon); }
+  .badge h3{ font-family:'Fraunces', serif; font-weight:600; font-size:16.5px; margin-bottom:6px; }
+  .badge p{ font-size:14.5px; color:#4a443d; max-width:none; margin-bottom:0; }
+  .badge .tag{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.05em; color:var(--brass); text-transform:uppercase; margin-top:8px; }
+
+  /* Annexation cards */
+  .annex-grid{ margin-top:34px; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:560px){ .annex-grid{ grid-template-columns:1fr; } }
+  .annex-card{ border:1px solid var(--line); padding:22px; background:#fbf8f2; }
+  .annex-card .label{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--brass); text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  .annex-card h4{ font-family:'Fraunces', serif; font-weight:600; font-size:17px; margin-bottom:8px; }
+  .annex-card .parcels{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#7a7264; }
+
+  footer{ padding:36px 0 96px; }
+  .colophon{ margin-top:20px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8a8272; line-height:1.8; }
+
+  @media (prefers-reduced-motion: reduce){ .zero-figure{ transition:none; } }
+  /* Glossary table */
+  .glossary{ margin-top:36px; border:1px solid var(--line); background:#fbf8f2; }
+  .glossary-row{ display:grid; grid-template-columns:110px 1fr; gap:20px; padding:16px 22px; border-bottom:1px solid var(--line); align-items:baseline; }
+  .glossary-row:last-child{ border-bottom:none; }
+  .glossary-row .term{ font-family:'IBM Plex Mono', monospace; font-size:14px; font-weight:500; color:var(--maroon); }
+  .glossary-row .def{ font-size:14.5px; color:#2a251f; }
+  .glossary-row .def strong{ color:var(--ink); font-weight:600; }
+  @media (max-width:560px){ .glossary-row{ grid-template-columns:1fr; gap:4px; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Little Mountain Service Area</div>
+    <h1 class="title">A District Built for <em>No One</em></h1>
+    <p class="dek">A water district created for zero residents, run by the same handful of landowning families for nearly two decades, became the financial pass-through for the largest development project in Weber County's history — and the people governing it were, at times, the same people benefiting from it.</p>
+    <div class="byline">THE WEBER COUNTY HIVE — LITTLE MOUNTAIN SERVICE AREA</div>
+
+    <div class="glossary">
+      <div class="glossary-row"><div class="term">LMSA</div><div class="def"><strong>Little Mountain Service Area</strong> — the sewer district this piece is about. Created 2007, still governs sewer infrastructure for the West Weber corridor today.</div></div>
+      <div class="glossary-row"><div class="term">UIPA</div><div class="def"><strong>Utah Inland Port Authority</strong> — the state agency that adopted the West Weber Project Area Plan in May 2024.</div></div>
+      <div class="glossary-row"><div class="term">PCC</div><div class="def"><strong>Promontory Commerce Center</strong> — the industrial development project inside the West Weber Project Area.</div></div>
+      <div class="glossary-row"><div class="term">PID</div><div class="def"><strong>Public Infrastructure District</strong> — a special taxing/bonding entity created to fund a specific development's roads, sewer, and utilities.</div></div>
+      <div class="glossary-row"><div class="term">ARPA</div><div class="def"><strong>American Rescue Plan Act</strong> — the federal COVID-era relief law; the source of the sewer funding described below.</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap move-divider">
+  <div class="move-label">I. 2007</div>
+  <h2 class="big">A district with no one to answer to</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">The Little Mountain Service Area was created to provide sewer service to the far western edge of Weber County &mdash; agricultural land, mostly, with almost no rooftops on it. The county's own resolution creating its first board of trustees says so plainly.</p>
+    <p>Seven seats were filled that day. Two-year terms, renewable, no election required &mdash; because there was, by the county's own account, no electorate to hold one for.</p>
+
+    <div class="doc-card">
+      <div class="seal"><div class="seal-inner">WEBER<br>COUNTY<br>2007</div></div>
+      <div class="doc-head">
+        <span>WEBER COUNTY COMMISSION</span>
+        <span class="doc-num">RESOLUTION 12&#8209;2007</span>
+      </div>
+      <div class="doc-body">
+        <div class="doc-quote">&ldquo;Jim Adams, Randy Marriott and Ken Bischoff be appointed to 2&#8209;year terms from January 1, 2007&#8211;December 31, 2008.&rdquo;</div>
+        <div class="doc-cite">— Weber County Commission, January 16, 2007</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="void zero-panel">
+  <div class="wrap">
+    <div class="kicker">By the county's own record</div>
+    <div class="zero-figure" id="zeroFig">0</div>
+    <div class="zero-cap">Residents in this sewer service area</div>
+    <div class="void-rule"></div>
+    <p>Not zero voters. Zero residents. A special district with taxing and infrastructure authority, governed by a board answerable to no one who lived inside its own boundary &mdash; only to the landowners who did.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The first board</div>
+    <h2>Who held the seats</h2>
+    <p>Landowners governing land they owned. That was, at the start, simply what the district was &mdash; a sewer utility for working farmland, run by the farmers.</p>
+
+    <div class="roster">
+      <div class="roster-row"><div class="name">Jim Adams</div><div class="term">2-year term, appointed 1/16/2007</div><div class="note"></div></div>
+      <div class="roster-row"><div class="name">Randy Marriott</div><div class="term">2-year term, appointed 1/16/2007</div><div class="note">Served at least 17 years, until his death sometime before May 2024</div></div>
+      <div class="roster-row"><div class="name">Ken Bischoff</div><div class="term">2-year term, appointed 1/16/2007</div><div class="note"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">II. 2023&ndash;2024</div>
+  <h2 class="big">Then, eleven months, laid end to end</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">For sixteen years, almost nothing about the district changed. Then, over less than a year, the state's inland port authority arrived &mdash; and Little Mountain's own trustees started showing up everywhere the money moved. Every entry below is a dated action from the county's own record.</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-date">MAR 4<br>2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Two survey plats signed for the PID districts that don't exist yet</h3>
+          <div class="who">Surveyor Brian F. Mitchell</div>
+          <div class="sig">A 357-acre master annexation plat, 18 parcels &mdash; three months before the districts themselves were formally created. Wadeland Land LLC confirmed as owner of at least 5 of those parcels.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">JUN 13&ndash;27<br>2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Notice creating Promontory Commerce Center PID Districts 1, 2, 3</h3>
+          <div class="who">Weber County Commission</div>
+          <div class="sig">Combined debt limit: $150 million. Consent to creation was already obtained from every property owner before the public hearing &mdash; meaning no one left who could actually contest it.</div>
+        </div>
+      </div>
+
+      <div class="tl-item hot">
+        <div class="tl-date">AUG<br>2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Weber County Commission passes its first resolution consenting to a UIPA project area</h3>
+          <div class="who">Weber County Commission &middot; ~903 acres</div>
+          <div class="sig">The original, much smaller footprint. What would later become 9,000 acres started here.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">SEP<br>2023</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Land-buying begins in the expanded footprint</h3>
+          <div class="who">PCC Land LLC / Gardner Group</div>
+          <div class="sig">Purchases recorded the month after the original, smaller resolution passed &mdash; before the county had even voted to expand it.</div>
+        </div>
+      </div>
+
+      <div class="tl-item hot">
+        <div class="tl-date">JAN 2<br>2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>The 9,000-acre expansion</h3>
+          <div class="who">Weber County Commission (Froerer, Bolos, Harvey)</div>
+          <div class="sig">The West Weber Project Area grows roughly tenfold. Of 20 public commenters, 19 were opposed.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">JAN 8<br>2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>990-acre wetland delineation approved</h3>
+          <div class="who">Army Corps of Engineers / UIPA</div>
+          <div class="sig">A delineation, not a fill permit &mdash; the first direct federal touchpoint on a specific parcel in the project area.</div>
+        </div>
+      </div>
+
+      <div class="tl-item hot">
+        <div class="tl-date">MAY 20<br>2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>UIPA adopts the West Weber Project Area Plan &mdash; and approves PCC Land LLC's development agreement, same meeting</h3>
+          <div class="who">UIPA Board &middot; Resolution 2024-09</div>
+          <div class="sig">A resident formally asked the board, in writing, whether it had any relationship with a lobbying network tied to the project. The board's own minutes required future differential funds be spent on "public infrastructure &mdash; road, sewer, water."</div>
+        </div>
+      </div>
+
+      <div class="tl-item hot">
+        <div class="tl-date">JUN 25<br>2024</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body">
+          <h3>Two things happen at the same Weber County Commission meeting</h3>
+          <div class="who">Weber County Commission &middot; Stephanie Russell presenting</div>
+          <div class="sig">The county approves the agreement routing Little Mountain's ARPA sewer money to the port's own infrastructure &mdash; and appoints a developer to Little Mountain's board of trustees.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="void quote-panel">
+  <div class="wrap">
+    <div class="kicker">June 25, 2024</div>
+    <h2>The pivot</h2>
+    <p>Eleven months after the county's first quiet resolution, the county's own Economic Development Director stood up and explained, on the record, exactly where Little Mountain's leftover federal sewer money was going.</p>
+    <div class="void-quote">&ldquo;This contract will outline the details of the ARPA funding for the Sewer Lagoon Improvement System and the Wastewater Improvement System in west Weber&hellip; Any remaining funds from the LMSA Lagoon Rehabilitation effort will be sent to this program, with the County acting as pass-through for those funds.&rdquo;</div>
+    <div class="void-cite">— Stephanie Russell, Weber County Commission meeting, June 25, 2024</div>
+    <p style="margin-top:30px;">At that same meeting, on the same agenda, the county appointed a developer &mdash; a man who would, twenty days later, propose that Little Mountain take over his own subdivision's sewer system &mdash; to the board governing the district whose money Russell had just described.</p>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">III. Stephanie Russell</div>
+  <h2 class="big">Three roles, one person, at the same moment</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">At that June 25, 2024 meeting, Stephanie Russell held three distinct roles at once &mdash; the person deciding where the money went, the person running the district that had it, and a person paid by that district to represent its interests in the room.</p>
+
+    <div class="hats">
+      <div class="hat">
+        <div class="num">01</div>
+        <h3>County Official</h3>
+        <p>Weber County Economic Development Director. Presented and got approved the agreement moving Little Mountain's ARPA funds to the port's own infrastructure.</p>
+      </div>
+      <div class="hat">
+        <div class="num">02</div>
+        <h3>District Manager</h3>
+        <p>Little Mountain's own formal Manager &mdash; an officer title, not merely staff. The district's public contact listing routes to her private email, not a county address.</p>
+      </div>
+      <div class="hat">
+        <div class="num">03</div>
+        <h3>Paid Lobbyist</h3>
+        <p>Registered September 18, 2024 to lobby on Little Mountain's behalf &mdash; through a company she personally owns. Little Mountain is her only listed client.</p>
+      </div>
+    </div>
+    <div class="hats-center">ONE PERSON &nbsp;&middot;&nbsp; THREE SEPARATE, SIMULTANEOUS ROLES</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">The lobbyist registration</div>
+    <h2>Registered to lobby for the district she manages</h2>
+    <p>Utah requires anyone paid to influence government decisions on behalf of a client to register as a lobbyist. Russell's own filing names her private company &mdash; not a law firm, not an outside consultancy &mdash; as the vehicle, and names Little Mountain as the client.</p>
+
+    <div class="doc-card">
+      <div class="doc-head"><span>UTAH LOBBYIST REGISTRATION</span><span class="doc-num">FILED 9/18/2024</span></div>
+      <div class="doc-body">
+        <div class="doc-row"><div class="label">Registrant</div><div class="value">Stephanie Sage Russell</div></div>
+        <div class="doc-row"><div class="label">Business</div><div class="value">Sage Development Group</div></div>
+        <div class="doc-row"><div class="label">Entity type</div><div class="value flag">Assumed Name (DBA) — not an LLC</div></div>
+        <div class="doc-row"><div class="label">Sole owner</div><div class="value">Stephanie Sage Russell</div></div>
+        <div class="doc-row"><div class="label">Listed client</div><div class="value flag">Little Mountain Service Area (her only one)</div></div>
+        <div class="doc-row"><div class="label">Address on file</div><div class="value">611 Plum Creek Ln, Ogden</div></div>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:14.5px; color:#4a443d;">Little Mountain's own public listing gives its official contact as this same private email &mdash; not a county address &mdash; routed through the county's own building at 2380 Washington Blvd.</p>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="num">$184,955.53</div>
+        <div class="lab">2025 PAY, "DIVISION DIRECTOR — ECONOMIC DEVELOPMENT"</div>
+        <div class="sub">119% above the average Weber County co-worker (third-party payroll data, not primary-source confirmed)</div>
+      </div>
+      <div class="stat">
+        <div class="num">+1</div>
+        <div class="lab">ADDITIONAL JOB LISTED, TITLE NOT IDENTIFIED</div>
+        <div class="sub">Shown on the same aggregator record, unresolved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">IV. Pat Burns</div>
+  <h2 class="big">The developer appointed the same day</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">Right alongside the vote routing Little Mountain's ARPA money toward the Promontory Commerce Center, the Weber County Commission made a second decision that day: who would sit on Little Mountain's own board.</p>
+
+    <div class="doc-card">
+      <div class="doc-head"><span>WEBER COUNTY COMMISSION</span><span class="doc-num">RESOLUTION 34-2024</span></div>
+      <div class="doc-body">
+        <div class="doc-row"><div class="label">Action</div><div class="value">Appoints trustee to Little Mountain Service Area board</div></div>
+        <div class="doc-row"><div class="label">Appointed</div><div class="value flag">Pat Burns</div></div>
+        <div class="doc-row"><div class="label">Replacing</div><div class="value">Craig Jackson</div></div>
+        <div class="doc-row"><div class="label">Date</div><div class="value">June 25, 2024</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Who Pat Burns is</div>
+    <h2>A developer with three footprints in the same corridor</h2>
+    <p>Burns wasn't a stranger to west Weber County land use before this appointment. His name was already attached to a construction company, a rezoning fight, and a financing district built on the same tools Little Mountain now touches.</p>
+
+    <div class="badges">
+      <div class="badge">
+        <div class="mk">A</div>
+        <div>
+          <h3>Lync Construction LLC</h3>
+          <p>Owns the company (with Tracy Teeples, formed October 2015) behind a "Burns Plain City" project that went before the Plain City Planning Commission in 2021, during Mayor Jon Beesley's tenure. A tip alleges Beesley was personally employed by Lync/Burns at the time &mdash; not independently corroborated beyond that tip, though Beesley's own 2021 conflict-of-interest disclosure has a blank field where his employer should be listed.</p>
+          <span class="tag">Construction</span>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="mk">B</div>
+        <div>
+          <h3>West Creek Subdivision</h3>
+          <p>The developer behind a Weber County rezone from agricultural to residential (R1-15) &mdash; the same period the county was standing up the infrastructure-financing tools that would later touch his own land.</p>
+          <span class="tag">Rezoning</span>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="mk">C</div>
+        <div>
+          <h3>Sage Creek Infrastructure Financing District</h3>
+          <p>Listed as the contact sponsor &mdash; tying him to a separate statewide network of infrastructure financing districts used on other large Utah developments.</p>
+          <span class="tag">Financing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="void quote-panel">
+  <div class="wrap">
+    <div class="kicker">The work session that followed</div>
+    <div class="day-count">20</div>
+    <div class="day-cap">days after joining Little Mountain's board</div>
+    <h2>He proposed the district take over his own sewer</h2>
+    <div class="void-quote">&ldquo;Pat Burns also discussed his plans for the sewer. His company will be funding the building of the sewer infrastructure with the assumption that LSMA or Central Weber Sewer will take it over.&rdquo;</div>
+    <div class="void-cite">— Weber County Work Session, July 15, 2024</div>
+    <p style="margin-top:30px;">His company would front the construction cost for his own subdivision's sewer system &mdash; on the assumption that the public district he'd just joined would take over ownership and maintenance once it was built.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">March 11, 2025</div>
+    <h2>Annexing his own land, no hearing required</h2>
+    <p>Utah law waives the normal public-hearing requirement for annexation into a special district when the petitioner is the landowner. Nine months after joining Little Mountain's board, Burns's own company used exactly that provision &mdash; on land in the district he now helped govern.</p>
+
+    <div class="annex-grid">
+      <div class="annex-card">
+        <div class="label">Resolution 03112025-1</div>
+        <h4>"Longhorn I Property"</h4>
+        <div class="parcels">Parcels 100360066 &amp; 101770017</div>
+      </div>
+      <div class="annex-card">
+        <div class="label">Resolution 03112025-2</div>
+        <h4>"Longhorn II Property"</h4>
+        <div class="parcels">Parcel 100360043</div>
+      </div>
+    </div>
+    <p style="margin-top:24px;">Both petitions were filed by Burns on behalf of his own company. Because he was the property owner, no public hearing was legally required for either one to be annexed into the district whose board he sat on.</p>
+  </div>
+</section>
+
+<div class="wrap move-divider">
+  <div class="move-label">V. Why It Matters</div>
+  <h2 class="big">Who actually gets a say</h2>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lede">Utah law waives the public-hearing requirement for a special-district annexation when the person asking is the only property owner affected. On paper, that makes sense &mdash; if you own land and nobody else does, there's no one else to hear from.</p>
+    <p>But that rule assumes the person asking is an ordinary landowner, not someone who already sits on the board deciding whether to say yes. When the petitioner and the decision-maker are the same person, the "no one else to hear from" logic breaks down &mdash; the one person whose voice matters most is also the one voice the process was built to check.</p>
+    <p>The public doesn't get a vote on Little Mountain's board. It never has &mdash; the district was built for a place with no residents, and residency is still not how a seat is earned. What the public gets, in theory, is the hearing: the moment where a decision affecting shared infrastructure has to be explained out loud, in public, before it's final. That's the mechanism that's absent here, twice, for the same board member's own land.</p>
+    <p style="max-width:64ch;">None of this required breaking a rule. That's arguably the more uncomfortable version of the story: a district that was already structurally insulated from public input used a second, entirely legal shortcut to remove the one moment of public input that remained.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="max-width:60ch;">A district built for zero residents, run by the same handful of landowning families for close to two decades, became the vehicle for financing the largest development project in Weber County's history. One meeting &mdash; June 25, 2024 &mdash; put a county official on every side of that district's money, and put a developer on its board who would, within a year, ask it to take over his own infrastructure costs and annex his own land into it without the hearing an outside owner would have faced. None of it required breaking a rule. All of it is on the public record, in each participant's own name.</p>
+
+    <div class="colophon">
+      SOURCES: Weber County Commission Resolution 12-2007 (Jan. 16, 2007) &middot; Weber County Commission minutes (Aug 2023, Jan 2 2024, Jun 25 2024, Jul 15 2024) &middot; PCC PID Notice of Public Hearing (Jun 13/27, 2023) &middot; Final Local Entity Plats (Mar 4, 2023) &middot; UIPA Board Meeting Minutes (May 20, 2024) &middot; Army Corps of Engineers wetland delineation record &middot; Utah Lobbyist Registration filing, Stephanie Sage Russell (Sept. 18, 2024) &middot; Little Mountain Service Area public body contact listing (pmn.utah.gov) &middot; Little Mountain Service Area Annexation Resolutions 03112025-1 and 03112025-2 (March 11, 2025).<br>
+      THE WEBER COUNTY HIVE
+    </div>
+  </div>
+</footer>
+
+<script>
+  const zero = document.getElementById('zeroFig');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ zero.classList.add('in'); } });
+  }, {threshold:0.4});
+  obs.observe(zero);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is UIPA? — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1c1a;
+    --paper:#faf8f3;
+    --paper-2:#f1ede2;
+    --line:#ddd6c4;
+    --accent:#8a2f1f;      /* brick red, port/rail feel */
+    --accent-2:#1f4d3e;    /* rail green */
+    --gold:#b8873a;
+    --muted:#6b6558;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Source Serif 4',Georgia,serif;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px 80px;}
+  header.masthead{
+    background:var(--ink);
+    color:var(--paper);
+    padding:36px 24px 28px;
+    text-align:center;
+    border-bottom:6px solid var(--accent);
+  }
+  header.masthead .kicker{
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  header.masthead h1{
+    font-size:2.1rem;
+    margin:0 0 8px;
+    font-weight:700;
+  }
+  header.masthead p{
+    max-width:560px;
+    margin:0 auto;
+    color:#d8d3c4;
+    font-size:.98rem;
+  }
+  nav.jump{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+    margin-top:18px;
+  }
+  nav.jump button{
+    background:transparent;
+    border:1px solid #55503f;
+    color:#e8e4d6;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:.78rem;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+  }
+  nav.jump button:hover{background:#2b2a24;}
+
+  section{margin-top:44px;}
+  section h2{
+    font-size:1.5rem;
+    border-bottom:3px solid var(--accent);
+    padding-bottom:8px;
+    margin-bottom:18px;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:.7rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+
+  .plain-box{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-left:5px solid var(--accent-2);
+    border-radius:6px;
+    padding:22px 24px;
+    margin-bottom:8px;
+  }
+  .plain-box .tag{
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--accent-2);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .plain-box p{margin:0 0 12px;font-size:1.02rem;}
+  .plain-box p:last-child{margin-bottom:0;}
+
+  .detail{
+    margin-top:26px;
+    padding-top:6px;
+  }
+  .detail .tag{
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--muted);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .detail p{margin:0 0 14px;}
+
+  .fact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:20px 0;
+  }
+  @media (max-width:600px){.fact-grid{grid-template-columns:1fr;}}
+  .fact{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:14px 16px;
+  }
+  .fact .num{
+    font-family:'Source Serif 4',serif;
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--accent);
+    display:block;
+  }
+  .fact .label{
+    font-size:.82rem;
+    color:var(--muted);
+  }
+
+  .glossary{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px 20px;
+  }
+  .glossary dt{font-weight:700;color:var(--accent-2);margin-top:10px;}
+  .glossary dt:first-child{margin-top:0;}
+  .glossary dd{margin:2px 0 0;color:#3a382f;}
+
+  .note{
+    font-size:.86rem;
+    color:var(--muted);
+    border-top:1px dashed var(--line);
+    margin-top:22px;
+    padding-top:12px;
+  }
+  a{color:var(--accent-2);}
+
+  .board-sub{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--muted);
+    font-weight:700;
+    margin:26px 0 12px;
+  }
+  .board-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+  }
+  @media (max-width:600px){.board-grid{grid-template-columns:1fr;}}
+  .member{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:14px 16px;
+    position:relative;
+  }
+  .member.flagged{border-left:4px solid var(--accent);}
+  .member .name{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:1.05rem;
+    margin-bottom:2px;
+  }
+  .member .role{
+    font-size:.85rem;
+    color:#3a382f;
+    margin-bottom:8px;
+  }
+  .member a.disclosure{
+    font-size:.78rem;
+    text-decoration:none;
+    border:1px solid var(--accent-2);
+    color:var(--accent-2);
+    padding:3px 9px;
+    border-radius:999px;
+    display:inline-block;
+  }
+  .member a.disclosure:hover{background:var(--accent-2);color:#fff;}
+  .flag-badge{
+    position:absolute;
+    top:-9px;
+    right:12px;
+    background:var(--accent);
+    color:#fff;
+    font-size:.66rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    padding:2px 8px;
+    border-radius:999px;
+    font-weight:700;
+  }
+
+  .callout{
+    background:#fbf1ec;
+    border:1px solid #e3c3b6;
+    border-left:5px solid var(--accent);
+    border-radius:6px;
+    padding:20px 22px;
+    margin-top:24px;
+  }
+  .callout .tag{
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .callout p{margin:0 0 12px;font-size:.98rem;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout ul{margin:0 0 12px;padding-left:20px;}
+  .callout li{margin-bottom:6px;}
+
+  .tool-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:20px 0;
+  }
+  @media (max-width:600px){.tool-grid{grid-template-columns:1fr;}}
+  .tool{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+  }
+  .tool .tool-name{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:1.05rem;
+    color:var(--accent-2);
+    margin-bottom:6px;
+  }
+  .tool p{margin:0;font-size:.92rem;color:#3a382f;}
+
+  .split-bar{
+    display:flex;
+    height:40px;
+    border-radius:6px;
+    overflow:hidden;
+    margin:18px 0 8px;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:.9rem;
+  }
+  .split-bar div{display:flex;align-items:center;justify-content:center;color:#fff;}
+  .split-uipa{background:var(--accent);}
+  .split-local{background:var(--accent-2);}
+  .split-caption{font-size:.82rem;color:var(--muted);margin-bottom:22px;}
+
+  .wetland-scale{
+    display:flex;
+    align-items:stretch;
+    gap:0;
+    margin:20px 0;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .wetland-scale .seg{
+    flex:1;
+    padding:16px 14px;
+    background:#fff;
+  }
+  .wetland-scale .seg + .seg{border-left:1px solid var(--line);}
+  .wetland-scale .seg.floor{background:#f1ede2;}
+  .wetland-scale .seg.actual{background:#fbf1ec;}
+  .wetland-scale .pct{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:1.6rem;
+    color:var(--accent-2);
+    display:block;
+  }
+  .wetland-scale .seg.actual .pct{color:var(--accent);}
+  .wetland-scale .lbl{font-size:.82rem;color:var(--muted);}
+
+  .proj-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+    font-size:.9rem;
+  }
+  .proj-table th{
+    text-align:left;
+    background:var(--paper-2);
+    padding:9px 10px;
+    font-size:.76rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--muted);
+    border-bottom:2px solid var(--line);
+  }
+  .proj-table td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--line);
+  }
+  .proj-table tr.highlight td{background:#fbf1ec;font-weight:600;}
+  .proj-table td.num{text-align:right;font-variant-numeric:tabular-nums;}
+
+  .gov-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:20px 0;
+  }
+  @media (max-width:600px){.gov-grid{grid-template-columns:1fr;}}
+  .gov-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+  }
+  .gov-card .gov-name{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    color:var(--accent-2);
+    margin-bottom:6px;
+    font-size:1rem;
+  }
+  .gov-card p{margin:0;font-size:.92rem;color:#3a382f;}
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:.82rem;
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="kicker">The Weber County Hive · Explainer</div>
+  <h1>What Is UIPA?</h1>
+  <p>A plain-language guide to the Utah Inland Port Authority — what it is, what power it has, and how it touches your local schools and taxes.</p>
+  <nav class="jump">
+    <button data-scroll-to="what-is-uipa">What Is UIPA</button>
+    <button data-scroll-to="history">History</button>
+    <button data-scroll-to="the-board">The Board</button>
+    <button data-scroll-to="financing-tools">Financing Tools</button>
+    <button data-scroll-to="wetlands-policy">Wetlands Policy</button>
+    <button data-scroll-to="project-areas">Project Areas</button>
+    <button data-scroll-to="governance">Governance</button>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <section id="what-is-uipa">
+    <span class="eyebrow">Section 1</span>
+    <h2>What Is UIPA?</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p><strong>UIPA stands for the Utah Inland Port Authority.</strong> Despite the name, it doesn't run a seaport — Utah doesn't have a coastline. "Inland port" is the industry term for a hub where trucks, trains, and sometimes planes hand off cargo to each other, the way a real port hands cargo between ships and land.</p>
+      <p>The Utah Legislature created UIPA in 2018 as a special government agency with one main job: pick "project areas" around the state and use them to build out logistics and industrial infrastructure — rail spurs, roads, water and sewer lines, power — that private companies need to locate warehouses, distribution centers, and manufacturing plants there.</p>
+      <p>UIPA isn't a city, county, or school district, but it has something close to their power: inside a project area, it can capture a share of the growth in property tax revenue for itself, for up to 25 years per parcel, instead of that growth going to the local governments and school district that would normally get it. That mechanism — called <strong>tax differential</strong> — is the thread that runs through everything else in this guide.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail</div>
+      <p>UIPA was created by the 2018 Utah Legislature and operates under <a href="https://le.utah.gov/xcode/Title11/Chapter58/11-58.html" target="_blank" rel="noopener">Title 11, Chapter 58 of the Utah Code</a> — separate from the tax-increment statute (Title 17C) that cities and counties use for redevelopment agencies. That distinction matters: protections lawmakers later wrote into Title 17C to shield certain school levies don't automatically apply to UIPA, because UIPA isn't operating under that chapter.</p>
+      <p>UIPA is governed by a board of five voting members and non-voting ex officio members. Under state law, board seats are split between gubernatorial and legislative appointment — two by the Governor, one by the House, one by the Senate, and one jointly by the House and Senate — plus representatives from affected local governments.</p>
+      <p>UIPA began with a single focus area, the Northwest Quadrant of Salt Lake City near the airport. Its footprint has since expanded statewide through a growing list of separately-adopted "project areas" and "regional project areas" — including one inside Weber County, covering roughly 8,968 acres near Little Mountain on the Great Salt Lake, known as the West Weber project area.</p>
+
+      <div class="fact-grid">
+        <div class="fact"><span class="num">2018</span><span class="label">Year created by the Legislature</span></div>
+        <div class="fact"><span class="num">Title 11-58</span><span class="label">Governing statute (not Title 17C)</span></div>
+        <div class="fact"><span class="num">5</span><span class="label">Voting board members</span></div>
+        <div class="fact"><span class="num">25 yrs</span><span class="label">Max standard tax-capture term per parcel</span></div>
+      </div>
+
+      <p>UIPA's own materials describe its toolkit as three main pieces: <strong>tax differential</strong> (the captured growth in property tax revenue, reinvested in the project area), the <strong>Authority Infrastructure Bank</strong> (low-interest loans to private companies for projects inside its jurisdiction), and post-performance <strong>incentive rebates</strong> tied to how much a company invests. Each of those gets its own section below as this guide is built out.</p>
+
+      <div class="glossary">
+        <dt>Project area</dt>
+        <dd>A specific, board-adopted geographic zone where UIPA's powers — most importantly, tax differential — apply. Weber County's is the West Weber project area.</dd>
+        <dt>Tax differential</dt>
+        <dd>The growth in property tax revenue above a frozen "base year" value, inside a project area. UIPA can redirect a share of that growth to itself instead of it flowing to the school district, county, and city as it normally would.</dd>
+        <dt>Base year</dt>
+        <dd>The year property values in a project area are "frozen" for tax purposes. Growth above that frozen value is what gets split between UIPA and local taxing entities.</dd>
+      </div>
+
+      <p class="note">Sources: Utah Code Title 11, Chapter 58; UIPA board and about pages, inlandportauthority.utah.gov; Wikipedia summary of UIPA's 2018 creation and board structure, cross-checked against UIPA's own site. Weber County-specific figures (West Weber project area) come from this newsroom's separate research and will carry over into later sections of this page.</p>
+    </div>
+  </section>
+
+  <section id="history">
+    <span class="eyebrow">Section 2</span>
+    <h2>How UIPA Got From One Site To Sixteen</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>UIPA didn't start out statewide. The Legislature created it in 2018 with a single focus: the Northwest Quadrant of Salt Lake City, near the airport. Salt Lake City sued to stop it, arguing the state was overriding the city's own land-use authority — UIPA won that fight at the Utah Supreme Court in 2022. After that, instead of building one giant hub, UIPA's leadership shifted strategy: rather than a single centralized site, they began creating a growing network of smaller "project areas" in counties across the state, each adopted separately with its own local government's consent.</p>
+      <p>That shift is why UIPA now operates in 16 different places, from a 16,000-acre zone in Salt Lake County down to a 498-acre zone in Grantsville City — each one a separate legal creation with its own plan, board vote, and local resolutions, all using the same tax differential mechanism described in Section 1.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail</div>
+      <p>UIPA's original 2018 footprint was the Northwest Quadrant — the area later shown to be its single largest project area at 16,000 acres. Salt Lake City challenged the Legislature's creation of UIPA and its tax-differential powers over land inside city limits; the Utah Supreme Court ruled largely in the state's favor in June 2022, affirming a lower court's rejection of the city's claims. UIPA's own statement at the time framed the ruling as validating its "tax provisions."</p>
+      <p>From there, UIPA's approach changed. Rather than pursue one large centralized transloading terminal, UIPA's leadership — including current Executive Director Ben Hart — pivoted to a model of smaller, regional "railports" built around existing rail and highway infrastructure, developed in partnership with individual counties and cities. Iron Springs (Cedar City), approved April 2023, was UIPA's first rural project area under this model. West Weber (Weber County) followed in 2024, and Golden Spike (Box Elder County) has been amended three times since its original 2023 approval.</p>
+      <p>UIPA's own 2024–2029 Strategic Business Plan, authored under Hart's leadership, formalizes this as an ongoing strategy: recruiting new project areas county by county, each following the same process — a local government resolution requesting inclusion, a draft plan, at least one public board meeting, and a final board vote to adopt.</p>
+      <p class="note">Sources: Wikipedia summary of UIPA's 2018 creation, cross-checked against UIPA's own site; UIPA press statement on the 2022 Utah Supreme Court ruling, inlandportauthority.utah.gov; AJOT trade press coverage of UIPA's shift to a regional-hub model; UIPA 2024–2029 Strategic Business Plan.</p>
+    </div>
+  </section>
+
+  <section id="the-board">
+    <span class="eyebrow">Section 3</span>
+    <h2>Meet the Board</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>UIPA is run day-to-day by staff, but the decisions that matter — which project areas to adopt, how much tax revenue to capture, which developers to approve — go through a board. Utah law requires each board member to file a public conflict-of-interest disclosure, since many of them hold other government or industry jobs at the same time.</p>
+      <p>Two names on the current board already show up elsewhere in this newsroom's reporting: <strong>Jefferson Moss</strong>, who also runs the state's economic development office and a private nonprofit exempted from public-records law, and <strong>Sen. Jerry Stevenson</strong>, who also serves as Vice Chair of the Military Installation Development Authority (MIDA), a different state authority with similar tax-capture powers. Neither overlap is illegal — Utah law lets officials serve on multiple boards — but it means the same small circle of people is deciding how several different tax-capture tools get used across the state.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail — current roster</div>
+      <p>Current membership listed on UIPA's board page, with each member's own filed disclosure:</p>
+
+      <p class="board-sub">Voting members</p>
+      <div class="board-grid">
+        <div class="member">
+          <div class="name">Abby Osborne</div>
+          <div class="role">Board Chair · Chief of Staff, Utah House of Representatives</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/A.-Osborne-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Jefferson Moss</div>
+          <div class="role">Board Vice Chair · Executive Director, Governor's Office of Economic Opportunity (GOEO)</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/J.-Moss-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Sen. Jerry Stevenson</div>
+          <div class="role">Board Vice Chair · Utah Senate District 21</div>
+          <a class="disclosure" href="https://disclosures.utah.gov/Search/PublicSearch/ViewConflictOfInterest?year=01%2F14%2F2026%2009%3A21%3A00&sooId=1415041" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Jonathan Freedman</div>
+          <div class="role">Board Vice Chair · CEO, World Trade Center Utah</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/J.-Freedman-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Rep. Paul Cutler</div>
+          <div class="role">Utah House District 18</div>
+          <a class="disclosure" href="https://disclosures.utah.gov/Search/PublicSearch/ViewConflictOfInterest?year=01%2F05%2F2026%2013%3A47%3A00&sooId=1414971" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+      </div>
+
+      <p class="board-sub">Non-voting members</p>
+      <div class="board-grid">
+        <div class="member">
+          <div class="name">Joel Ferry</div>
+          <div class="role">Executive Director, Department of Natural Resources</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/J.-Ferry-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Victoria Petro</div>
+          <div class="role">Salt Lake City Council District 1</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/V.-Petro-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+        <div class="member">
+          <div class="name">Bill Wyatt</div>
+          <div class="role">Executive Director, Salt Lake City Department of Airports</div>
+          <a class="disclosure" href="https://inlandportauthority.utah.gov/wp-content/uploads/B.-Wyatt-Disclosures-COI-Form-2026.pdf" target="_blank" rel="noopener">Disclosure ↗</a>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="tag">Why two of these names are flagged</div>
+        <p><strong>Jefferson Moss</strong> simultaneously holds three roles now on the record: UIPA Board Vice Chair, Executive Director of GOEO, and CEO of the Nucleus Institute — a private nonprofit that the Legislature exempted from public-records and open-meetings law (via HB 530), and which now runs a state-facing venture fund, a federal-grant intake program, a legislative "PolicyLab" placing interns in lawmakers' offices, and a state funding program (UTIF) processed through GOEO's own application portal. Moss also co-chairs the state's Pro-Human AI Task Force and previously sat on the Utah Privacy Governing Board.</p>
+        <p><strong>Sen. Jerry Stevenson</strong> is UIPA's other Vice Chair while also serving as Vice Chair of MIDA (the Military Installation Development Authority), which uses a similar tax-differential mechanism to UIPA's and which Stevenson personally sponsored legislation (SB 316, 2025) to expand — powers MIDA's board, with Stevenson voting yes, then used roughly 13 months later to approve the Stratos data center project area.</p>
+        <p>Both overlaps are disclosed on the record above. The pattern worth watching as this page builds out: the people who sit on UIPA's board also sit on the boards, task forces, and legislative committees that interact with UIPA's decisions elsewhere in state government.</p>
+      </div>
+
+      <div class="callout">
+        <div class="tag">What Moss's own filed disclosure actually shows</div>
+        <p>This newsroom pulled Moss's filed UIPA disclosure form directly (dated 1/22/2026). It's a handwritten form, and it's thinner than the surrounding reporting on him would suggest:</p>
+        <ul>
+          <li><strong>Item 1 (employers):</strong> lists "State of Utah" and "Nucleus Institute," with his titles as GOEO Executive Director and Nucleus Institute CEO — the two roles already documented.</li>
+          <li><strong>Item 2 (entities he owns or is an officer of):</strong> answered <strong>"NA."</strong> Nucleus Institute's own leadership page lists Moss on its Board of Directors, not just as staff CEO — a board seat is normally exactly what Item 2 is asking about, separate from the employment already listed in Item 1.</li>
+          <li><strong>Item 5 (other paid leadership roles or board seats, not already listed above):</strong> left <strong>entirely blank.</strong> No mention of the Nucleus Institute board seat, his co-chair role on the state's Pro-Human AI Task Force, or his prior seat on the Utah Privacy Governing Board.</li>
+          <li><strong>Item 7 (spouse):</strong> spouse's current employer is listed as the <strong>Alpine School District</strong> — worth noting given this newsroom's separate reporting on the Alpine District's 2027 three-way split and TIF/PID revenue impact.</li>
+        </ul>
+        <p>None of this is necessarily a violation — disclosure forms vary in how thoroughly people fill them out, and "NA" or blank answers may reflect how Moss or his counsel read the form's categories rather than an intent to omit. But the gap between what the form asks and what's actually on Moss's public record elsewhere is worth putting to him directly before this page says more.</p>
+      </div>
+
+      <p class="note">Sources: UIPA board page (inlandportauthority.utah.gov/board), each member's linked conflict-of-interest disclosure as filed, pulled August 2026. Moss disclosure form findings from this newsroom's own review of his filed PDF. Cross-references to Moss and Stevenson come from this newsroom's separate research on the Nucleus Institute/GOEO and MIDA/Stratos, respectively.</p>
+    </div>
+  </section>
+
+  <section id="financing-tools">
+    <span class="eyebrow">Section 4</span>
+    <h2>How UIPA Pays For Things</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>UIPA doesn't get a lump sum from the state to spend. Instead, it uses four tools — all built around the tax differential idea introduced in Section 1 — to fund infrastructure and lure businesses into its project areas.</p>
+      <p>The simplest way to picture it: when a company builds in a UIPA project area, the growth in property taxes that shows up over the next 25 years gets split. <strong>75% goes to UIPA</strong> to spend on infrastructure and incentives in that area. <strong>25% goes to the local governments and school district</strong> that would normally get all of it. UIPA advertises this split on its own public financing page, and it matches figures already documented in the West Weber and Golden Spike project plans.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail</div>
+
+      <div class="split-bar">
+        <div class="split-uipa" style="flex:75;">75% to UIPA</div>
+        <div class="split-local" style="flex:25;">25% to local entities</div>
+      </div>
+      <p class="split-caption">The standard tax differential split, for up to 25 years per parcel, as UIPA states it on its own public financing page.</p>
+
+      <p>UIPA markets its speed as a selling point to prospective businesses: it claims it can deliver Infrastructure Bank loans, incentive approvals, and financing tools in <strong>60 to 90 days</strong>, contrasted against unnamed "years-long timelines seen elsewhere." No comparison is named.</p>
+
+      <div class="tool-grid">
+        <div class="tool">
+          <div class="tool-name">Tax Differential</div>
+          <p>The core mechanism. UIPA captures 75% of the growth in property tax revenue inside a project area for up to 25 years per parcel, and reinvests it in infrastructure and incentives there.</p>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Public Infrastructure District (PID)</div>
+          <p>A separate taxing entity UIPA can sponsor inside a project area, with landowner consent. A PID can levy its own taxes and issue its own bonds — which can be paid back using UIPA's tax differential revenue.</p>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Authority Infrastructure Bank (AIB)</div>
+          <p>A revolving loan fund UIPA can use to lend directly to developers or local governments for infrastructure, repayable from future tax differential proceeds.</p>
+        </div>
+        <div class="tool">
+          <div class="tool-name">Business Incentives</div>
+          <p>Post-performance rebates tied to how much capital a company invests — generally scaled up to a 20% cap of the company's own tax differential, and never exceeding what UIPA itself collects from that project.</p>
+        </div>
+      </div>
+
+      <p>UIPA's site also uses its own financing page to promote several other state incentive programs alongside its own tools — REDI, EDTIF, the Industrial Assistance Account, the High Cost Infrastructure Tax Credit, Custom Fit training, and Revolving Loan Funds. Most of these are administered through the Governor's Office of Economic Opportunity (GOEO) — the same office Jefferson Moss runs while also serving as UIPA Vice Chair (Section 2). It's a fourth documented instance of that overlap: UIPA's own public materials functioning as a co-marketing channel for programs Moss's other office administers.</p>
+
+      <p class="note">Sources: UIPA public financing/incentives page, inlandportauthority.utah.gov, pulled August 2026. 75/25 split and incentive-cap structure cross-checked against the West Weber and Golden Spike project area plans.</p>
+    </div>
+  </section>
+
+  <section id="wetlands-policy">
+    <span class="eyebrow">Section 5</span>
+    <h2>The Wetlands Policy</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>Because several UIPA project areas sit near the Great Salt Lake or Utah Lake, UIPA adopted a statewide Wetlands Policy in November 2023. It requires any project getting UIPA money to avoid harming nearby wetlands, restore or enhance existing ones, or help establish new ones — and it sets aside a small, fixed slice of the tax differential specifically for wetland mitigation.</p>
+      <p>That slice isn't the same everywhere. Areas that were part of a project area from the start got a 1% floor. Areas added later, starting in October 2024, got bumped up to 3%. Both numbers matter and shouldn't be swapped for each other — the specific project area section on this page will tell you which one applies.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail</div>
+
+      <div class="wetland-scale">
+        <div class="seg floor">
+          <span class="pct">1%</span>
+          <span class="lbl">Minimum commitment for areas included in a project area's original creation (before Oct 2024)</span>
+        </div>
+        <div class="seg actual">
+          <span class="pct">3%</span>
+          <span class="lbl">Commitment for areas amended into a project area starting October 2024 onward</span>
+        </div>
+      </div>
+
+      <p>The policy itself, adopted by UIPA's board in November 2023, requires any project receiving UIPA incentives or financing to meet three baseline standards: avoid adverse impacts on wetlands, restore or enhance existing wetlands, and/or help establish new wetlands or permanently preserve existing ones. UIPA's own funds — once approved by the board — can go toward water purchases, land easements for natural buffer zones, wetland characterization beyond what's federally required, and mitigation methods identified by the EPA or Army Corps of Engineers. Funds are meant to be spent within the proximity where they were generated.</p>
+
+      <p>UIPA has also funded wetlands work outside the standard percentage commitment. In November 2024, the board approved a <strong>$2.5 million grant</strong> to the Utah Department of Natural Resources to help acquire land along the southeastern shore of the Great Salt Lake, creating buffer zones for wetland and playa habitat.</p>
+
+      <p>A concrete example of the numbers at work: the West Weber project area plan designates <strong>3%</strong> of its tax differential for wetland mitigation — Appendix D of that plan puts the dollar figure at roughly <strong>$10.8 million</strong> over 25 years, which lines up with UIPA's own public wetlands page describing West Weber's commitment as "potentially generating over $10 million for conservation." Golden Spike's own budget appendix shows a similar mechanic: about <strong>$5.27 million</strong> set aside for wetland mitigation against its total 25-year tax differential.</p>
+
+      <div class="callout">
+        <div class="tag">Resolved: "designated," not "recommended"</div>
+        <p>UIPA's own public wetlands marketing page softens this to <strong>"recommended,"</strong> but the West Weber project area plan text itself — the adopted document — states the 3% is <strong>designated</strong> for wetland mitigation. Contemporaneous local reporting on the May 20, 2024 board meeting where it was adopted backs that up: the Standard-Examiner reported the board "designated" the 3%, and Utah News Dispatch reported the board "approved" it as part of the plan. Only one outlet covering that same meeting (the Salt Lake Tribune) used "recommended." The weight of evidence — the plan document itself, plus most contemporaneous meeting coverage — supports "designated" as the accurate word; UIPA's own summary page appears to be the outlier.</p>
+      </div>
+
+      <p class="note">Sources: West Weber project area plan (adopted text, Appendix D budget summary); Standard-Examiner and Utah News Dispatch coverage of the May 20, 2024 UIPA board meeting; UIPA Wetlands Policy summary page, inlandportauthority.utah.gov, pulled August 2026.</p>
+    </div>
+  </section>
+
+  <section id="project-areas">
+    <span class="eyebrow">Section 6</span>
+    <h2>The 16 Project Areas</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>UIPA's official project areas span from Salt Lake County to San Juan County — 16 in total as of this page's last update, adding up to well over 115,000 acres statewide. Each one is legally separate, with its own local resolutions, plan, and board vote, but all use the same tools described above.</p>
+      <p><strong>West Weber (Weber County)</strong> and <strong>Golden Spike (Box Elder County)</strong> are the two this newsroom is covering in depth — each gets its own dedicated page, linked below once published.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail — full list, by acreage</div>
+
+      <table class="proj-table">
+        <thead>
+          <tr><th>Project Area</th><th>County / Location</th><th class="num">Acres</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Northwest Quadrant</td><td>Salt Lake County</td><td class="num">16,000</td></tr>
+          <tr><td>Central Utah Agri-Park</td><td>Juab County</td><td class="num">42,820</td></tr>
+          <tr><td>Mineral Mountains</td><td>Beaver County</td><td class="num">25,427</td></tr>
+          <tr class="highlight"><td>West Weber</td><td>Weber County</td><td class="num">9,000&nbsp;(2,140 per Golden Spike-style amendment log)</td></tr>
+          <tr><td>Ancient Sky</td><td>San Juan County</td><td class="num">5,300</td></tr>
+          <tr><td>Black Gold</td><td>Duchesne County</td><td class="num">2,780</td></tr>
+          <tr><td>Iron Springs</td><td>Iron County</td><td class="num">2,287</td></tr>
+          <tr><td>Castle Country</td><td>Carbon &amp; Emery Counties</td><td class="num">2,185</td></tr>
+          <tr><td>Verk Industrial Park</td><td>Spanish Fork</td><td class="num">2,600</td></tr>
+          <tr><td>Pony Express</td><td>Fairfield, Cedar Fort, Payson</td><td class="num">1,700</td></tr>
+          <tr><td>Historic Capitol</td><td>Millard County</td><td class="num">1,960</td></tr>
+          <tr class="highlight"><td>Golden Spike</td><td>Box Elder County</td><td class="num">2,140 (per adopted plan, Amendment #2)</td></tr>
+          <tr><td>Skyline Corridor</td><td>Sanpete, Sevier &amp; Wayne Counties</td><td class="num">1,415</td></tr>
+          <tr><td>Twenty Wells</td><td>Grantsville City</td><td class="num">498</td></tr>
+          <tr><td>Tooele Valley</td><td>Tooele County</td><td class="num">242</td></tr>
+          <tr><td>Greater Washington</td><td>Washington County</td><td class="num">not yet on map</td></tr>
+        </tbody>
+      </table>
+
+      <p>West Weber's acreage is worth a quick note: UIPA's own map graphic rounds it to "9,000 acres," which matches the plan's stated total of 8,967.74 acres. The 2,140-acre figure that appears for Golden Spike is different — that project's amendment log shows its acreage grew from an original approval to 2,140.225 acres as of its second amendment (November 2025), which is a separate, smaller project area than West Weber entirely — don't conflate the two.</p>
+
+      <p>Some of these areas remain thinly documented as of this page's last update: Ancient Sky, Black Gold, Castle Country, Central Utah Agri-Park, Greater Washington, Historic Capitol, Pony Express, Skyline Corridor, Tooele Valley, and Twenty Wells have not yet been individually researched by this newsroom beyond their name, county, and acreage.</p>
+
+      <p class="note">Sources: UIPA project areas navigation menu and statewide map graphic, inlandportauthority.utah.gov, pulled August 2026; West Weber and Golden Spike acreage cross-checked against each project's own adopted plan documents.</p>
+    </div>
+  </section>
+
+  <section id="governance">
+    <span class="eyebrow">Section 7</span>
+    <h2>Governance &amp; Transparency, On Paper</h2>
+
+    <div class="plain-box">
+      <div class="tag">New to this? Start here</div>
+      <p>UIPA's own 2024–2029 Strategic Business Plan lays out specific commitments to transparency and ethics — audits, ethics training for board members, a whistleblower portal, and public accessibility of documents. Those commitments are UIPA's own stated goals, not verified outcomes, and this newsroom's own review of one board member's actual filed disclosure form (Section 3) found real gaps against that standard.</p>
+    </div>
+
+    <div class="detail">
+      <div class="tag">The detail — what UIPA's own plan commits to</div>
+
+      <div class="gov-grid">
+        <div class="gov-card">
+          <div class="gov-name">Regular Compliance Audits</div>
+          <p>The plan commits UIPA to regular audits assessing compliance with local, state, and federal regulations, plus an internal review process for discrepancies.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gov-name">Ethics Training</div>
+          <p>Ongoing ethics training for both staff <em>and board members</em>, explicitly framed as reinforcing standards to prevent conflicts of interest.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gov-name">Whistleblower Portal</div>
+          <p>An anonymous online portal for reporting and addressing ethical concerns is named as part of UIPA's stated system.</p>
+        </div>
+        <div class="gov-card">
+          <div class="gov-name">Document Accessibility</div>
+          <p>The plan commits to keeping project plans, environmental reviews, and board meeting minutes readily accessible online, in plain language for a non-specialist audience.</p>
+        </div>
+      </div>
+
+      <p>The plan also formalizes something worth connecting back to Section 3: under its own tracked measures of success, UIPA lists <strong>"Collaboration with the Governor's Office of Economic Opportunity (GOEO) on dual-incentive awards"</strong> as a key performance indicator for its recruitment strategy. That's not incidental overlap — it's UIPA's own stated goal to coordinate incentive awards with the same state office Jefferson Moss runs while also serving as UIPA's Board Vice Chair.</p>
+
+      <p>Executive Director Ben Hart authored the plan's introductory letter, describing UIPA's mission as maximizing "long-term economic benefits in Utah by developing and optimizing economic project areas and logistics-based infrastructure."</p>
+
+      <p class="note">Sources: UIPA 2024–2029 Strategic Business Plan, inlandportauthority.utah.gov. Cross-reference to Jefferson Moss's disclosure form findings is this newsroom's own analysis (Section 3).</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  The Weber County Hive · webercountyhive.substack.com
+</footer>
+
+<script>
+document.querySelectorAll('button[data-scroll-to]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const el=document.getElementById(btn.dataset.scrollTo);
+    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+
+</body>
+</html>

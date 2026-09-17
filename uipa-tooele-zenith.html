@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not the Landowner, Not the Developer — The Weber County Hive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1815; --paper:#eee9e0; --paper-2:#e4ddd0;
+    --maroon:#7a1f35; --maroon-deep:#571526; --brass:#9c7c33;
+    --line:#c9c0ac; --good:#3f5c3f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ background:var(--paper); color:var(--ink); font-family:'Source Sans 3', sans-serif; font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:var(--maroon); color:var(--paper); }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  a{ color:var(--maroon); }
+
+  .back{ display:block; max-width:760px; margin:0 auto; padding:28px 28px 0; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.06em; color:var(--maroon); text-decoration:none; }
+
+  .topbar{ background:var(--ink); }
+  .topbar .wrap{ display:flex; gap:20px; padding:10px 28px; flex-wrap:wrap; justify-content:space-between; align-items:center; }
+  .topbar .left{ display:flex; gap:20px; flex-wrap:wrap; }
+  .topbar a{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:.04em; color:#c9bfae; text-decoration:none; border-bottom:1px dotted #6a6055; }
+  .topbar a.substack{ color:#d9a768; border-bottom-color:#d9a768; }
+
+  .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+  .tag{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 10px; border:1px solid var(--line); color:#4a443d; }
+  .date-line{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#8a8272; margin-top:14px; }
+
+  .footer-hive{ width:30px; height:30px; margin:0 auto 14px; opacity:.5; display:block; }
+  .footer-sub{ margin-top:6px; font-size:.78rem; }
+
+  header.masthead{ padding:36px 0 48px; border-bottom:1px solid var(--line); }
+  .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:10px; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--maroon); display:inline-block; }
+  h1.title{ font-family:'Fraunces', serif; font-weight:600; font-size:clamp(32px, 5.6vw, 50px); line-height:1.08; letter-spacing:-0.01em; }
+  h1.title em{ font-style:italic; font-weight:500; color:var(--maroon); }
+  .dek{ font-size:19px; color:#4a443d; max-width:56ch; margin-top:22px; }
+  .byline{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8a8272; margin-top:26px; display:flex; gap:20px; flex-wrap:wrap; }
+  .byline b{ color:var(--ink); }
+
+  main{ padding:44px 0 100px; }
+  main h2{ font-family:'Fraunces', serif; font-weight:600; font-size:26px; color:var(--maroon-deep); margin:44px 0 16px; letter-spacing:-0.005em; }
+  main p{ margin-bottom:18px; max-width:64ch; }
+  main p:last-of-type{ margin-bottom:0; }
+
+  .pullquote{ border-left:3px solid var(--maroon); background:var(--paper-2); padding:18px 24px; margin:28px 0; }
+  .pullquote p{ font-family:'Fraunces', serif; font-style:italic; font-size:1.2rem; color:var(--ink); margin-bottom:8px; max-width:none; }
+  .pullquote cite{ font-family:'IBM Plex Mono', monospace; font-style:normal; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#8a8272; }
+
+  .stat-row{ display:flex; gap:14px; margin:24px 0; flex-wrap:wrap; }
+  .stat{ flex:1; min-width:140px; background:#fbf8f2; border:1px solid var(--line); padding:16px 14px; text-align:center; }
+  .stat .num{ font-family:'Fraunces', serif; font-size:1.9rem; color:var(--maroon); line-height:1; }
+  .stat .label{ font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:.05em; text-transform:uppercase; color:#8a8272; margin-top:8px; }
+
+  .contradiction{ display:flex; gap:2px; margin:24px 0; background:var(--line); border:1px solid var(--line); }
+  .contra-side{ flex:1; background:#fbf8f2; padding:20px 22px; }
+  .contra-side .who{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--brass); margin-bottom:10px; }
+  .contra-side p{ font-size:15px; margin-bottom:0; max-width:none; }
+  @media(max-width:600px){ .contradiction{ flex-direction:column; } }
+
+  .verdict-box{ background:var(--paper-2); border:1px solid var(--line); padding:22px 26px; margin:30px 0; }
+  .verdict-box h3{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--maroon); margin-bottom:14px; }
+  .vline{ display:flex; gap:10px; padding:6px 0; font-size:14.5px; border-bottom:1px dashed var(--line); }
+  .vline:last-child{ border-bottom:none; }
+  .vline .mark{ font-family:'Fraunces', serif; font-weight:600; flex-shrink:0; width:20px; }
+  .vline.yes .mark{ color:var(--good); }
+  .vline.open .mark{ color:var(--maroon); }
+
+  .crosslink{ background:#fbf8f2; border:1px solid var(--line); border-left:3px solid var(--brass); padding:18px 22px; margin:32px 0 0; font-size:14.5px; }
+  .crosslink a{ font-weight:600; }
+
+  footer{ padding:40px 0 80px; border-top:1px solid var(--line); margin-top:20px; }
+  .colophon{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:#8a8272; line-height:1.8; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <a href="index.html">&larr; UIPA Investigation Series</a>
+      <a href="https://weber-county-hive.github.io/-weber-county-hive-index/" target="_blank" rel="noopener">Master index</a>
+    </div>
+    <a class="substack" href="https://webercountyhive.substack.com" target="_blank" rel="noopener">Read on Substack &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">The Weber County Hive — UIPA Investigation Series</div>
+    <h1 class="title">"Not the <em>Landowner</em>, Not the Developer"</h1>
+    <p class="dek">UIPA says its involvement in the Tooele Valley data center project is limited to transportation infrastructure. The developer says his project "would not be possible without" UIPA's incentives and financing. Both statements are on the record, and they can't both be the whole story.</p>
+    <div class="tag-row">
+      <span class="tag">UIPA</span>
+      <span class="tag">Data Centers</span>
+      <span class="tag">Great Salt Lake</span>
+      <span class="tag">Water Quality</span>
+      <span class="tag">Public Infrastructure Districts</span>
+    </div>
+    <div class="date-line">Published Sep 17, 2026 · Last updated Sep 17, 2026</div>
+    <div class="byline">
+      <span>Sources: <b>Salt Lake Tribune, Great Salt Lake Collaborative, KPCW, Daily Herald, UIPA's own public statement</b></span>
+      <span>Method: <b>Public records only, no comment requested</b></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <p>UIPA's Tooele Valley Project Area sits on the Great Salt Lake's southern shore, near the shoreline of Gilbert Bay. Inside it: a planned 500-megawatt data center, a Love's Travel Stop, a hotel, and warehouses, developed by Zenith Development under Charles "Chuck" Akerlow. A separate government entity, the Tooele Valley Public Infrastructure District, has already issued $33 million in bonds to build the roads, water, and sewer serving the site.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">500 MW</div><div class="label">planned data center capacity</div></div>
+      <div class="stat"><div class="num">252,000</div><div class="label">gallons/day of brine discharge sought</div></div>
+      <div class="stat"><div class="num">$33M</div><div class="label">in bonds already issued</div></div>
+    </div>
+
+    <h2>Two Accounts of the Same Project</h2>
+    <p>UIPA's own public statement — "UIPA's Position on Data Centers: Transparent Growth, Local Control and Natural Resource Protection" — draws a careful line around its own role. The authority says its involvement has focused only on transportation infrastructure within a 600-acre northern portion of the project area, separate from the data center itself, which sits in the project's southern section. UIPA Executive Director Ben Hart made this same distinction directly to reporters, though he acknowledged the wastewater treatment plant serving the site may end up serving both portions.</p>
+    <p>The developer has described the relationship differently.</p>
+
+    <div class="contradiction">
+      <div class="contra-side">
+        <div class="who">UIPA's own statement</div>
+        <p>The authority "is neither the landowner nor the developer" and "is not seeking a data center" for the Tooele Valley area.</p>
+      </div>
+      <div class="contra-side">
+        <div class="who">Developer Chuck Akerlow, to the Salt Lake Tribune</div>
+        <p>His project "would not be possible without the incentives and financing provided by the port authority."</p>
+      </div>
+    </div>
+
+    <h2>A Third Account: UIPA's Own Project Page</h2>
+    <p>UIPA's own official page for the Tooele Valley Project Area — the page any member of the public would find first — describes it in purely generic industrial terms: 584 acres in northern Tooele County, connected via Burmester Road and Interstate 80, with rail adjacency creating "a unique opportunity for industrial growth." The page lists the project's milestones (Resolution, Initial Presentation, Board Approval, PID Created, Amendment, Successes) and links to the official Project Area Plan and Annual Report. Nowhere on that page, in any of its own project description or milestone list, does the word "data center" appear.</p>
+    <p>The project area's origin is dated precisely: the Tooele County Council passed a resolution on April 11, 2023, consenting to and requesting that UIPA establish a project area within county boundaries. Just under six months later, on October 4, 2023, the Tooele Valley Project Area draft was presented to the UIPA board for the first time at a public board meeting — the second of the six milestones on UIPA's own project page. UIPA's own listed contact for the project is Stephanie Pack, Associate Vice President for Regional Project Area Development.</p>
+
+    <h2>The Live Fight: What Goes Into the Water</h2>
+    <p>The site's groundwater is brackish, so the developer plans a reverse osmosis treatment plant — and is seeking a state permit to discharge up to 252,000 gallons a day of the resulting concentrated brine into a drainage channel running through transitional wetlands, and from there into Gilbert Bay itself. A Utah Division of Water Quality public hearing on the permit, held July 27, 2026, drew heavy opposition; only two people spoke in favor, one of them a real estate attorney specializing in water issues. No decision had been reached as of that hearing.</p>
+    <p>Opponents raised concerns about PFAS contamination, diesel runoff, toxic dust from the shrinking lakebed, and the absence of enforceable limits on salt, chloride, or arsenic in the proposed discharge. The aquifer supplying the project has reportedly been closed to new appropriation since 1996.</p>
+
+    <div class="pullquote">
+      <p>Gov. Cox's Executive Order 2026-03 directs UIPA to Utah Code sections 17C-6 and 63N-3a — the state's newest data-center tax-increment framework — as part of its response to controversies like this one.</p>
+      <cite>Confirming the framework is already in active use, not sitting untested</cite>
+    </div>
+
+    <h2>A Second, Larger Version of the Same Fight</h2>
+    <p>The Tooele Valley project isn't the only Great Salt Lake data center controversy playing out through a quasi-government authority. The Stratos Project — roughly 20,000 acres on the lake's north shore, backed not by UIPA but by the Military Installation Development Authority (MIDA) — is a separate, much larger version of the same basic pattern: a state land-use authority approves a massive data center project, and the surrounding community raises the same water and environmental concerns after the fact.</p>
+
+    <h2>What's Confirmed, What Isn't</h2>
+    <div class="verdict-box">
+      <h3>Confirmed</h3>
+      <div class="vline yes"><span class="mark">✓</span><span>UIPA's own statement distancing itself from the data center portion of the project</span></div>
+      <div class="vline yes"><span class="mark">✓</span><span>Akerlow's on-record statement that his project depends on UIPA's incentives and financing</span></div>
+      <div class="vline yes"><span class="mark">✓</span><span>The 252,000 gallon/day discharge permit application and the July 27, 2026 public hearing</span></div>
+      <div class="vline yes"><span class="mark">✓</span><span>Executive Order 2026-03's direct citation of UIPA's new data-center code sections</span></div>
+      <div class="vline yes"><span class="mark">✓</span><span>UIPA's own official project page describes only generic industrial use — the words "data center" don't appear on it anywhere</span></div>
+    </div>
+    <div class="verdict-box">
+      <h3>Still Open</h3>
+      <div class="vline open"><span class="mark">?</span><span>Whether the Division of Water Quality has reached a final decision on the discharge permit</span></div>
+      <div class="vline open"><span class="mark">?</span><span>Exactly what financial incentive or financing UIPA has provided, beyond the transportation infrastructure it has publicly acknowledged</span></div>
+    </div>
+
+    <div class="crosslink">
+      <p><b>Cross-reference:</b> This project is measured directly against the water-use standard already missing from Utah's new data-center incentive law in the <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html" target="_blank" rel="noopener">H.B. 507 case file</a> in the Bill-Tracker repo — the same bill whose new "Regionally Significant Development Zone" framework this executive order invokes.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="text-align:center;">
+    <svg class="footer-hive" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="none" stroke="#8a8272" stroke-width="3"/>
+    </svg>
+    <div class="colophon">THE WEBER COUNTY HIVE</div>
+    <div class="footer-sub">Read the full investigation series on <a href="https://webercountyhive.substack.com" target="_blank" rel="noopener">The Weber County Hive Substack &rarr;</a></div>
+    <div class="footer-sub">Public records, primary sources, no speculation.</div>
+  </div>
+</footer>
+
+</body>
+</html>

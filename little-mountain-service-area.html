@@ -18,6 +18,18 @@
   ::selection{ background:var(--maroon); color:var(--paper); }
   .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
 
+  .topbar{ background:var(--ink); }
+  .topbar .wrap{ display:flex; gap:20px; padding:10px 28px; flex-wrap:wrap; justify-content:space-between; align-items:center; }
+  .topbar .left{ display:flex; gap:20px; flex-wrap:wrap; }
+  .topbar a{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:.04em; color:#c9bfae; text-decoration:none; border-bottom:1px dotted #6a6055; }
+  .topbar a.substack{ color:#d9a768; border-bottom-color:#d9a768; }
+
+  .tag-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+  .tag{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; padding:4px 10px; border:1px solid var(--line); color:#4a443d; }
+  .date-line{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#8a8272; margin-top:14px; }
+
+  .footer-hive{ width:30px; height:30px; margin:0 auto 14px; opacity:.5; display:block; }
+
   header.masthead{ padding:96px 0 72px; border-bottom:1px solid var(--line); }
   .eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--maroon); display:flex; align-items:center; gap:10px; margin-bottom:22px; }
   .eyebrow::before{ content:""; width:26px; height:1px; background:var(--maroon); display:inline-block; }
@@ -151,11 +163,29 @@
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <a href="index.html">&larr; UIPA Investigation Series</a>
+      <a href="https://weber-county-hive.github.io/-weber-county-hive-index/" target="_blank" rel="noopener">Master index</a>
+    </div>
+    <a class="substack" href="https://webercountyhive.substack.com" target="_blank" rel="noopener">Read on Substack &rarr;</a>
+  </div>
+</div>
+
 <header class="masthead">
   <div class="wrap">
     <div class="eyebrow">Little Mountain Service Area</div>
     <h1 class="title">A District Built for <em>No One</em></h1>
     <p class="dek">A water district created for zero residents, run by the same handful of landowning families for nearly two decades, became the financial pass-through for the largest development project in Weber County's history — and the people governing it were, at times, the same people benefiting from it.</p>
+    <div class="tag-row">
+      <span class="tag">UIPA</span>
+      <span class="tag">Little Mountain Service Area</span>
+      <span class="tag">West Weber</span>
+      <span class="tag">Public Infrastructure Districts</span>
+      <span class="tag">Conflicts of Interest</span>
+    </div>
+    <div class="date-line">Publish date not on file — add when confirmed &middot; Last updated Sep 17, 2026</div>
     <div class="byline">THE WEBER COUNTY HIVE — LITTLE MOUNTAIN SERVICE AREA</div>
 
     <div class="glossary">
@@ -489,13 +519,18 @@
 </section>
 
 <footer>
-  <div class="wrap">
-    <p style="max-width:60ch;">A district built for zero residents, run by the same handful of landowning families for close to two decades, became the vehicle for financing the largest development project in Weber County's history. One meeting &mdash; June 25, 2024 &mdash; put a county official on every side of that district's money, and put a developer on its board who would, within a year, ask it to take over his own infrastructure costs and annex his own land into it without the hearing an outside owner would have faced. None of it required breaking a rule. All of it is on the public record, in each participant's own name.</p>
+  <div class="wrap" style="text-align:center;">
+    <p style="max-width:60ch; margin-left:auto; margin-right:auto; text-align:left;">A district built for zero residents, run by the same handful of landowning families for close to two decades, became the vehicle for financing the largest development project in Weber County's history. One meeting &mdash; June 25, 2024 &mdash; put a county official on every side of that district's money, and put a developer on its board who would, within a year, ask it to take over his own infrastructure costs and annex his own land into it without the hearing an outside owner would have faced. None of it required breaking a rule. All of it is on the public record, in each participant's own name.</p>
 
-    <div class="colophon">
+    <svg class="footer-hive" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="margin-top:30px;">
+      <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="none" stroke="#8a8272" stroke-width="3"/>
+    </svg>
+
+    <div class="colophon" style="text-align:left; max-width:60ch; margin-left:auto; margin-right:auto;">
       SOURCES: Weber County Commission Resolution 12-2007 (Jan. 16, 2007) &middot; Weber County Commission minutes (Aug 2023, Jan 2 2024, Jun 25 2024, Jul 15 2024) &middot; PCC PID Notice of Public Hearing (Jun 13/27, 2023) &middot; Final Local Entity Plats (Mar 4, 2023) &middot; UIPA Board Meeting Minutes (May 20, 2024) &middot; Army Corps of Engineers wetland delineation record &middot; Utah Lobbyist Registration filing, Stephanie Sage Russell (Sept. 18, 2024) &middot; Little Mountain Service Area public body contact listing (pmn.utah.gov) &middot; Little Mountain Service Area Annexation Resolutions 03112025-1 and 03112025-2 (March 11, 2025).<br>
       THE WEBER COUNTY HIVE
     </div>
+    <div class="colophon" style="text-align:center;">Read more on <a href="https://webercountyhive.substack.com" target="_blank" rel="noopener" style="color:var(--maroon);">The Weber County Hive Substack &rarr;</a></div>
   </div>
 </footer>
 

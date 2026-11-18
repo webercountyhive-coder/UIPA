@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Decides, Part 4: The Inland Port | UIPA Investigation Series | Utah Hive Politics</title>
+<meta name="description" content="Who Decides, Part 4: the Utah Inland Port Authority (UIPA). Who sits on its board, every bill that changed its powers from 2018 to 2026 with sponsors and votes, how each change grades for the public, and the 2027 bills to watch.">
+<style>
+  :root{
+    --slate:#2c3e5c;
+    --slate-deep:#1c2a40;
+    --page:#ffffff;
+    --box:#eef2f7;
+    --box-2:#e2e8f1;
+    --ink:#1e2430;
+    --ink-soft:#4a5466;
+    --copper:#9a521f;
+    --copper-bright:#b5652b;
+    --copper-bg:#f8ece2;
+    --rule:#c9d3e1;
+    --on-slate:#e6ecf5;
+    --on-slate-soft:#b9c6da;
+    --ok:#1d6b3a; --part:#8a5a00; --no:#9b1c1c; --unk:#4a5568;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;font-size:112.5%;}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:"Newsreader",Georgia,"Iowan Old Style",serif;line-height:1.55;}
+  a{color:var(--copper);}
+
+
+  .topband{background:var(--slate-deep);color:var(--on-slate);padding:10px 24px;font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:.72rem;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;}
+  .topband a{color:var(--on-slate);text-decoration:none;border-bottom:1px solid rgba(230,236,245,.4);}
+
+  header.case-header{background:var(--slate);color:#fff;padding:56px 24px 40px;position:relative;overflow:hidden;border-bottom:5px solid var(--copper-bright);}
+  header.case-header::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border:1px solid rgba(230,236,245,.15);border-radius:50%;}
+  .case-wrap{max-width:880px;margin:0 auto;position:relative;}
+  .case-eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;letter-spacing:.08em;color:#f0b98c;margin:0 0 14px;}
+  .case-title{font-size:2.4rem;line-height:1.14;margin:0 0 10px;font-weight:600;max-width:22ch;}
+  .case-title em{color:#f0b98c;}
+  .case-sub{font-size:1.12rem;color:var(--on-slate);font-style:italic;margin:0 0 24px;max-width:58ch;}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.74rem;}
+  .meta-pill{border:1px solid rgba(230,236,245,.35);padding:6px 12px;border-radius:2px;color:var(--on-slate);}
+  .pub-date{margin-top:14px;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.03em;color:#f0b98c;}
+
+  main{max-width:880px;margin:0 auto;padding:44px 24px 90px;}
+  section{margin-bottom:52px;}
+  h2.section-head{font-size:1.5rem;margin:0 0 18px;border-bottom:2px solid var(--slate);padding-bottom:10px;color:var(--slate-deep);}
+  h3{color:var(--slate-deep);}
+  p{margin:0 0 16px;max-width:68ch;}
+  ul{max-width:68ch;}
+  .lede{font-size:1.12rem;color:var(--ink-soft);}
+
+  .hs-short{background:var(--box);border:1px solid var(--rule);border-left:6px solid var(--copper-bright);padding:18px 22px;margin:0 0 30px}
+  .hs-short h2{font-size:1.2rem;margin:0 0 10px;border:0;padding:0;color:var(--slate-deep)}
+  .hs-short ul{margin:0;padding-left:20px}
+  .hs-short li{margin-bottom:8px}
+  .hs-toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+  .hs-toc a{font-family:Arial,sans-serif;font-size:.82rem;padding:7px 12px;border:1px solid var(--rule);background:var(--box);color:var(--ink);text-decoration:none;border-radius:999px}
+  .hs-toc a:hover{border-color:var(--copper)}
+  .hs-plain{display:flex;flex-wrap:wrap;align-items:center;gap:12px;background:var(--copper-bg);border:1px dashed var(--copper);padding:14px 18px;margin:0 0 26px;font-size:1rem}
+  .hs-btn{display:inline-block;background:var(--copper);color:#fff !important;text-decoration:none;font-family:Arial,sans-serif;font-weight:bold;padding:10px 16px;border-radius:6px}
+  .hs-pages{background:var(--box);border:1px solid var(--rule);padding:14px 18px;margin:0 0 30px}
+  .hs-pages summary{font-family:Arial,sans-serif;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer}
+  .hs-pages ol{margin:10px 0 0;padding-left:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:4px 18px}
+  .hs-pages li{font-size:.95rem;line-height:1.35}
+  .hs-pages li.cur{font-weight:bold}
+  .hs-pages li.cur a{color:var(--ink);text-decoration:none}
+  .hs-pages small{display:block;font-size:.8rem;color:var(--ink-soft);font-weight:normal}
+
+  .figure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0 0 30px;}
+  .figure-cell{background:var(--slate);color:#fff;padding:22px 18px;text-align:center;}
+  .figure-cell .num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1.7rem;font-weight:700;color:#f0b98c;display:block;margin-bottom:6px;}
+  .figure-cell .cap{font-size:.84rem;color:var(--on-slate);}
+  @media (max-width:640px){.figure-grid{grid-template-columns:1fr;}}
+
+  .note{background:var(--box);border:1px dashed var(--rule);padding:14px 18px;font-size:.96rem;color:var(--ink-soft);margin:0 0 20px}
+  .callout{background:var(--box);border-left:4px solid var(--slate);padding:16px 20px;margin:18px 0;font-size:.98rem;}
+  .callout strong{color:var(--slate-deep);}
+  .estimate{background:#f8ece2;border:2px solid var(--part);padding:14px 18px;margin:16px 0;font-size:.98rem;}
+  .estimate b{color:var(--part);}
+
+  table.money{width:100%;border-collapse:collapse;background:#fff;font-size:.95rem;margin-bottom:10px}
+  table.money th,table.money td{border:1px solid var(--rule);padding:10px 12px;text-align:left;vertical-align:top}
+  table.money th{background:var(--slate);color:#fff;font-family:Arial,sans-serif;font-size:.82rem}
+  table.money td.n{text-align:right;font-family:Arial,sans-serif;font-weight:bold;white-space:nowrap}
+  table.money tr.total td{font-weight:700;background:var(--box-2)}
+  .tbl-wrap{overflow-x:auto;}
+
+  details.gl{border:1px solid var(--rule);background:#fff;margin-bottom:8px;padding:12px 16px;}
+  details.gl summary{font-weight:700;cursor:pointer;color:var(--slate-deep);}
+  details.gl p{margin:8px 0 0;font-size:.98rem;}
+
+  .legend-v{display:flex;flex-wrap:wrap;gap:8px 16px;margin:8px 0 14px;}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px;}
+  .filters button{font:inherit;font-family:Arial,sans-serif;font-size:.95rem;font-weight:600;border:2px solid var(--slate);background:#fff;color:var(--slate);padding:7px 14px;border-radius:999px;cursor:pointer;min-height:44px;}
+  .filters button[aria-pressed="true"]{background:var(--slate);color:#fff;}
+  .claim{background:#fff;border:1px solid var(--rule);border-left:6px solid var(--unk);padding:16px 18px;margin-bottom:14px;}
+  .claim.ok{border-left-color:var(--ok);} .claim.part{border-left-color:var(--part);} .claim.no{border-left-color:var(--no);} .claim.unk{border-left-color:var(--unk);}
+  .claim .said{font-size:1.2rem;line-height:1.35;margin-bottom:6px;font-weight:600;}
+  .claim .who{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--ink-soft);margin-bottom:10px;}
+  .claim p{font-size:1rem;margin-bottom:8px;}
+  .claim ul{margin:0 0 8px;padding-left:20px;}
+  .claim .src{font-size:.86rem;color:var(--ink-soft);font-style:italic;margin:6px 0 0;}
+  .v{display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border:2px solid;margin-bottom:8px;background:#fff;}
+  .v.ok{color:var(--ok);border-color:var(--ok);} .v.part{color:var(--part);border-color:var(--part);}
+  .v.no{color:var(--no);border-color:var(--no);} .v.unk{color:var(--unk);border-color:var(--unk);}
+  .grp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);margin:26px 0 10px;}
+
+  .chart{background:#fff;border:1px solid var(--rule);padding:18px 20px;margin:18px 0;}
+  .chart h3{font-size:1.2rem;margin:0 0 6px;}
+  .chart .sub{font-family:Arial,sans-serif;font-size:.88rem;color:var(--ink-soft);margin-bottom:10px;}
+  .chart .src{font-size:.84rem;color:var(--ink-soft);font-style:italic;margin-top:10px;}
+  .bar-row{margin-bottom:16px;}
+  .bar-row .lbl{font-family:Arial,sans-serif;font-size:1rem;font-weight:700;margin-bottom:4px;line-height:1.3;}
+  .bar-track{display:flex;height:42px;background:var(--box);border:1px solid var(--rule);}
+  .bar-track div{display:flex;align-items:center;justify-content:flex-start;padding-left:6px;color:#fff;font-family:Arial,sans-serif;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;}
+  .b25{background:var(--slate);} .b40{background:var(--copper-bright);color:#fff !important;}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;font-family:Arial,sans-serif;font-size:.92rem;margin-top:6px;}
+  .legend span::before{content:"";display:inline-block;width:18px;height:18px;margin-right:6px;vertical-align:-3px;}
+  .legend .l25::before{background:var(--slate);} .legend .l40::before{background:var(--copper-bright);}
+
+  .flow{background:var(--box);border:1px solid var(--rule);padding:22px 18px;margin:18px 0;}
+  .flow-row{display:grid;grid-template-columns:1fr;gap:14px;max-width:560px;margin:0 auto;}
+  .flow-row.three{grid-template-columns:repeat(3,minmax(0,1fr));max-width:860px;}
+  .fbox{background:#fff;border:3px solid var(--slate);border-radius:8px;padding:16px 18px;font-size:1.02rem;line-height:1.45;text-align:center;}
+  .fbox .fh{font-weight:700;font-size:1.2rem;margin-bottom:6px;color:var(--slate-deep);}
+  .fbox.pub{border-color:#2f6f8f;} .fbox.pub .fh{color:#2f6f8f;}
+  .fbox.co{border-color:var(--copper-bright);} .fbox.co .fh{color:var(--copper);}
+  .fbox.main{background:var(--slate);color:#fff;border-color:var(--slate);} .fbox.main .fh{color:#f0b98c;font-size:1.5rem;}
+  .arrow{text-align:center;font-size:30px;color:var(--copper-bright);margin:10px 0;line-height:1.2;}
+  .arrow span{display:block;font-family:Arial,sans-serif;font-size:1rem;font-weight:700;color:var(--ink-soft);}
+  .diagram-caption{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:12px;text-align:center;}
+  @media(max-width:700px){.flow-row.three{grid-template-columns:1fr;}}
+
+  #map{height:460px;border:1px solid var(--rule);margin:14px 0;}
+
+  .ask-list{list-style:none;margin:0;padding:0;max-width:none}
+  .ask-list li{background:var(--box);border-left:4px solid var(--copper-bright);padding:14px 18px;margin-bottom:10px;font-size:.98rem;}
+  .ask-list li strong{color:var(--copper);}
+
+  .tl{list-style:none;margin:0;padding:0;border-left:4px solid var(--copper-bright)}
+  .tl li{position:relative;padding:0 0 18px 22px;font-size:1rem}
+  .tl li::before{content:"";position:absolute;left:-11px;top:4px;width:14px;height:14px;border-radius:50%;background:#fff;border:4px solid var(--copper-bright)}
+  .tl li b{display:block;font-family:Arial,sans-serif;font-size:.9rem;color:var(--copper)}
+  .hs-updates{font-family:Arial,sans-serif;font-size:.85rem;color:var(--ink-soft);margin-top:14px}
+
+  .hs-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .hs-cards a{display:block;background:var(--box);border:1px solid var(--rule);border-top:5px solid var(--copper-bright);padding:14px 16px;text-decoration:none;color:var(--ink)}
+  .hs-cards a b{display:block;margin-bottom:4px}
+  .hs-cards a span{font-size:.88rem;color:var(--ink-soft)}
+  .hs-flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .hs-flip{text-align:left;background:var(--box);border:1px solid var(--rule);border-top:5px solid var(--slate);padding:14px 16px;cursor:pointer;font:inherit;color:var(--ink);min-height:96px}
+  .hs-flip .ft{font-weight:bold;font-size:1.05rem}
+  .hs-flip .fh{font-family:Arial,sans-serif;font-size:.75rem;color:var(--ink-soft);margin-top:6px}
+  .hs-flip .fd{display:none;margin-top:8px;font-size:.95rem}
+  .hs-flip[aria-expanded="true"] .fd{display:block}
+  .hs-flip[aria-expanded="true"] .fh{display:none}
+  .hs-counter{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .hs-counter div{background:var(--slate);color:#fff;padding:14px;text-align:center}
+  .hs-counter .n{font-family:Arial,sans-serif;font-size:1.8rem;font-weight:bold}
+  .hs-counter .l{font-size:.82rem}
+
+  .sources-block{background:transparent;border:none;border-top:2px solid var(--slate);padding:0;margin-top:8px}
+  .sources-block summary{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.85rem;letter-spacing:.04em;color:var(--ink);padding:14px 0;cursor:pointer}
+  .sources-block ol{margin:0 0 16px;padding-left:20px;font-size:.92rem;color:var(--ink-soft);max-width:none}
+  .sources-block li{margin-bottom:10px;}
+
+  footer{background:var(--slate-deep);color:var(--on-slate-soft);padding:32px 24px;text-align:center;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;letter-spacing:.04em;}
+  footer a{color:#f0b98c;}
+  @media(max-width:700px){
+    main{padding:34px 16px 80px}
+    header.case-header{padding:40px 16px 30px}
+    .case-title{font-size:1.8rem}
+    .topband{padding:10px 16px}
+  }
+
+/* ===== Unelected Power standard (slate blue & copper) — header, footer, Where/Who, call number ===== */
+.up-top{background:#1c2a40;color:#b9c6da;font:600 13px 'IBM Plex Mono',monospace;letter-spacing:.06em;text-transform:uppercase}
+.up-top .in{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.up-top a{color:#e6ecf5;text-decoration:none}
+.up-ww{max-width:900px;margin:26px auto 6px;padding:0 20px}
+.up-where{border:3px solid #2c3e5c;border-radius:10px;overflow:hidden;background:#fff}
+.up-where-h{background:#2c3e5c;color:#fff;padding:12px 18px}
+.up-lbl{font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#f3c9a6}
+.up-where-h .pl{font-size:21px;font-weight:700;margin-top:2px}
+.up-who{margin:14px 16px 16px;border:2px solid #9a521f;border-radius:8px}
+.up-who-h{background:#f8ece2;color:#9a521f;padding:6px 12px;font:600 12.5px 'IBM Plex Mono',monospace;letter-spacing:.14em;border-bottom:2px solid #9a521f}
+.up-who ul{list-style:none;margin:0;padding:6px 12px}
+.up-who li{padding:6px 0;border-bottom:1px solid #e3e8ef;font-size:17px;margin:0}
+.up-who li:last-child{border-bottom:none}
+.up-who li b{color:#2c3e5c}
+.up-connect ul{list-style:none;margin:0;padding:0}
+.up-connect li{border:1px solid #c9d3e1;border-left:5px solid #9a521f;background:#fff;padding:10px 14px;margin:0 0 10px;font-size:17px}
+.up-connect li a{font-weight:700;color:#2c3e5c}
+.up-connect li span{display:block;color:#4a5466;font-size:15.5px;margin-top:2px}
+.up-sources details{border:1px solid #c9d3e1;background:#eef2f7;padding:12px 16px}
+.up-sources summary{cursor:pointer;font:600 15px 'IBM Plex Mono',monospace;color:#2c3e5c}
+.up-sources li{margin:8px 0;font-size:16px}
+.up-foot{background:#1c2a40;color:#b9c6da;margin-top:30px;padding:28px 0 36px;font-size:16px}
+.up-foot .in{max-width:900px;margin:0 auto;padding:0 20px}
+.up-foot a{color:#f3c9a6}
+#up-shelf{border:2px dashed #b9c6da;border-radius:10px;padding:16px 18px;margin-bottom:20px;color:#e6ecf5}
+.up-cn-big{font:600 17px 'IBM Plex Mono',monospace;margin-bottom:12px}
+.up-cn-big b{color:#f3c9a6}
+.up-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.up-nav-btn{flex:1;min-width:220px;background:#2c3e5c;border:1px solid #4a6185;border-radius:8px;padding:12px 14px;color:#fff;text-decoration:none;font-size:16px}
+.up-nav-btn:last-child{text-align:right}
+.up-nav-btn b{color:#f3c9a6;font-family:'IBM Plex Mono',monospace}
+.up-nav-btn.up-off{opacity:.5}
+.up-list summary{cursor:pointer;font:600 15px 'IBM Plex Mono',monospace;color:#f3c9a6;margin-bottom:6px}
+.up-list ol{list-style:none;margin:8px 0 0;padding:0}
+.up-list li{margin:0;padding:5px 0;border-bottom:1px solid #2f4466}
+.up-list li a{color:#e6ecf5;text-decoration:none}
+.up-list li.up-shelf-head{color:#f3c9a6;font:600 13px 'IBM Plex Mono',monospace;letter-spacing:.1em;padding-top:12px;border-bottom:none}
+.up-list li.up-here a{color:#fff;font-weight:700}
+.up-cn{font-family:'IBM Plex Mono',monospace;color:#f3c9a6;margin-right:6px}
+.up-search{font-size:15px;margin-top:12px}
+.up-sub{font-size:14.5px;margin-top:8px;color:#b9c6da}
+  .up-connect h2,.up-sources h2{font-size:1.5rem;margin:0 0 18px;border-bottom:2px solid var(--slate);padding-bottom:10px;color:var(--slate-deep);}
+  .up-sources ul{max-width:none;padding-left:20px;color:var(--ink-soft);}
+  .up-connect ul,.up-who ul{max-width:none;}
+
+/* Utah Hive Politics branding bars (top and bottom) */
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px;}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none;}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none;}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block;}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;letter-spacing:.02em;display:block;margin-top:2px;}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px;}
+.hb-foot .hb-name{font-size:14px;}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block;}
+@media(max-width:600px){.hb-bar{padding:8px 16px}.hb-bar img{width:38px;height:38px}.hb-name{font-size:13px}.hb-sub{font-size:11.5px}}
+
+.hb-line-top{display:block;font-family:Georgia,serif;color:#e8d9b5;font-size:13px;margin-top:4px}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none}
+.hb-btn2{background:transparent;color:#d4af37}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+@media(max-width:600px){.hb-line-top{font-size:11.5px}}
+
+/* Round 2: short version + questions to ask */
+.up-short{max-width:900px;margin:24px auto 6px;padding:18px 22px;background:#f8ece2;border-left:6px solid #9a521f;border-radius:6px}
+.up-short h2{margin:0 0 8px;font-size:24px;color:#2c3e5c;border:0;padding:0}
+.up-short ul{margin:0;padding-left:22px}
+.up-short li{font-size:18.5px;margin:6px 0}
+.up-short-more{margin:10px 0 0}
+.up-short-more a{font-weight:700;color:#9a521f}
+.up-ask{max-width:900px;margin:26px auto;padding:0 20px}
+.wrap .up-ask{padding:0;margin:26px 0}
+.up-ask ul{margin:0;padding-left:22px}
+.up-ask li{font-size:18px;margin:10px 0}
+@media(max-width:940px){.up-short{margin-left:16px;margin-right:16px}}
+.claim p.added{background:#f8ece2;border-left:3px solid #b5652b;padding:6px 10px;font-size:.97rem}
+
+:root{--slate:#7a1f35;--slate-deep:#571526;--copper:#9c7c33;--copper-bright:#9c7c33;--copper-bg:#f6f1e6;--box:#f6f1e6;--rule:#d8cfbd;--ink:#1c1815;--ink-soft:#4a443d;--page:#ffffff;--on-slate:#f3ece4;--on-slate-soft:#e2cfc0;}
+.up-where{border-color:#7a1f35}.up-where-h{background:#7a1f35}.fbox.pub{border-color:#571526}.fbox.pub .fh{color:#571526}
+header.case-header{background:var(--slate);border-bottom-color:var(--copper-bright)}
+.case-eyebrow{color:#f0d9a8}
+.hs-parts{background:#fbf8f2;border:2px solid #7a1f35;border-radius:6px;padding:14px 16px;margin:0 0 24px;font-family:Arial,sans-serif}
+.hs-parts .lab{font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;font-weight:bold;color:#571526;margin:0 0 8px}
+.hs-parts ol{margin:0 0 10px;padding-left:24px;font-size:1rem;line-height:1.45}
+.hs-parts li.cur{font-weight:bold}
+.hs-parts .nav{display:flex;flex-wrap:wrap;gap:10px}
+.hs-parts .nav a{display:inline-block;background:#7a1f35;color:#fff;text-decoration:none;font-weight:bold;padding:10px 16px;border-radius:5px;font-size:1rem}
+.score{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.score div{border:2px solid #d8cfbd;border-radius:6px;padding:12px;text-align:center;background:#fff}
+.score .n{font-size:2.1rem;font-weight:700;line-height:1.1}
+.score .l{font-size:1rem}
+.bill .meta{font-size:1rem;margin:4px 0 6px}
+.bill .votes{font-family:Arial,sans-serif;font-size:.98rem;background:#f6f1e6;border-radius:4px;padding:6px 8px;display:inline-block;margin:4px 0}
+.rub{display:inline-block;font-family:Arial,sans-serif;font-size:.85rem;border:1px solid #b9ab92;border-radius:12px;padding:2px 9px;margin:2px 4px 2px 0}
+.dnu{border:3px solid #9c7c33;border-radius:6px;padding:12px 14px;background:#fbf6ea;margin:14px 0}
+table.days{border-collapse:collapse;width:100%;max-width:640px;font-size:1.05rem;margin:10px 0}
+table.days th,table.days td{border:1px solid #d8cfbd;padding:8px 10px;text-align:left}
+table.days th{background:#f6f1e6}
+.hbx-top{margin:0}
+.hb-bar{background:#0d0b0a;border-bottom:1px solid #3a2f1c;padding:10px 20px}
+.hb-bar a{display:flex;align-items:center;gap:12px;max-width:1100px;margin:0 auto;text-decoration:none}
+.hb-bar img{width:52px;height:52px;border-radius:4px;display:block;flex:none}
+.hb-name{font-family:'Cinzel','Trajan Pro',Georgia,serif;color:#d4af37;font-size:16px;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;display:block}
+.hb-sub{font-family:Georgia,serif;font-style:italic;color:#b8956a;font-size:12.5px;display:block;margin-top:2px}
+.hb-line-top{font-family:Georgia,serif;color:#e8d9b5;font-size:12.5px;display:block;margin-top:3px;line-height:1.4}
+.hbx-slim{background:#0e2438;color:#dbe7f0;font:600 14px/1.4 Arial,sans-serif;padding:7px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hbx-slim a{color:#F3E3B3;text-decoration:underline}
+.hb-foot{background:#0d0b0a;color:#b8956a;text-align:center;padding:26px 20px 30px;font-family:Georgia,serif;line-height:1.5}
+.hb-foot img{width:52px;height:52px;display:block;margin:0 auto 10px}
+.hb-foot .hb-name,.hb-foot .hb-sub{display:block}
+.hb-foot .hb-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#8a7650;margin-top:8px;display:block}
+.hb-line{max-width:720px;margin:14px auto 0;color:#e8d9b5;font-size:15.5px;line-height:1.5}
+.hb-tips{margin:16px 0 4px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hb-btn{display:inline-block;border:2px solid #d4af37;background:#d4af37;color:#0d0b0a!important;font:700 15px Georgia,serif;padding:10px 18px;border-radius:6px;text-decoration:none!important}
+.hb-btn2{background:transparent;color:#d4af37!important}
+.hb-small{font-size:12.5px;color:#8a7650;margin:6px 0 0}
+.hb-small a{color:#d4af37;text-decoration:underline}
+.hb-foot p{max-width:720px;margin-left:auto!important;margin-right:auto!important}
+.hbx-tools{max-width:980px;margin:14px auto 4px;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;font-family:Arial,sans-serif;position:relative;z-index:2}
+.hbx-tool{display:inline-block;font:700 15px Arial,sans-serif;color:#13233F!important;background:#fff;border:1px solid #c8cfd6;border-radius:6px;padding:9px 13px;text-decoration:none!important;cursor:pointer;line-height:1.2}
+.hbx-tool:hover{border-color:#13233F}.hbx-cnchip b{color:#1f5f9e;font-family:ui-monospace,Menlo,monospace}
+.hbx-jump{flex-basis:100%;order:5;border:1px solid #c8cfd6;border-radius:6px;background:#fff;color:#13233F}.hbx-jump summary{cursor:pointer;padding:9px 13px;font:700 15px Arial,sans-serif}
+.hbx-jump ol{margin:0;padding:4px 16px 12px 36px}.hbx-jump li{margin:6px 0;font-size:16.5px}.hbx-jump a{color:#13233F}
+.hbx-shelfwrap{background:#0e2438;color:#dbe7f0;padding:26px 20px 30px;font:16px/1.5 Arial,sans-serif;margin-top:48px;position:relative;z-index:1}
+.hbx-shelfwrap .in{max-width:900px;margin:0 auto}
+.hbx-shelf{border:2px dashed #9fd0ee;border-radius:10px;padding:16px 18px}
+.hbx-cn-big{font:600 17px ui-monospace,Menlo,monospace;margin-bottom:12px;color:#fff}.hbx-cn-big b{color:#9fd0ee}
+.hbx-nav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.hbx-nav-btn{flex:1;min-width:220px;background:#12304a;border:1px solid #4d86ad;border-radius:8px;padding:12px 14px;color:#fff!important;text-decoration:none!important;font-size:16px}.hbx-nav-btn b{color:#9fd0ee;font-family:ui-monospace,Menlo,monospace}.hbx-off{opacity:.5}
+.hbx-list summary{cursor:pointer;font-weight:700;padding:6px 0}.hbx-list ol{list-style:none;margin:6px 0 0;padding:0}.hbx-list li{padding:6px 0;border-bottom:1px solid #2b4a63}.hbx-list a{color:#fff!important;text-decoration:none}
+.hbx-shelf-head{color:#9fd0ee;font:600 13px ui-monospace,Menlo,monospace;letter-spacing:.1em}.hbx-cn{font-family:ui-monospace,Menlo,monospace;color:#9fd0ee;margin-right:6px}
+.hbx-find{margin:14px 0 4px}.hbx-find label{display:block;font-weight:700;margin-bottom:6px}.hbx-find div{display:flex;gap:8px;flex-wrap:wrap}.hbx-find input{flex:1;min-width:0;width:100%;padding:12px 14px;font-size:17px;border:2px solid #4d86ad;border-radius:6px;color:#13233F;background:#fff}.hbx-find button{padding:12px 18px;font-size:16px;font-weight:700;background:#9fd0ee;color:#0e2438;border:0;border-radius:6px;cursor:pointer}
+.hbx-search{font-size:15px;margin-top:12px}.hbx-search a,.hbx-search b{color:#9fd0ee}
+.hbx-totop{display:none;position:fixed;right:16px;bottom:16px;z-index:50;background:#0e2438;color:#fff!important;border:2px solid #9fd0ee;border-radius:24px;padding:10px 16px;font:700 15px Arial,sans-serif;text-decoration:none!important;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hbx-dates{font-family:ui-monospace,Menlo,monospace;font-size:13px}
+@media(max-width:600px){.hb-bar img{width:38px;height:38px}.hb-line-top{font-size:11.5px}}
+@media print{.hbx-tools,.hbx-totop{display:none}}
+.hbx-dates{color:inherit;opacity:.85;margin:12px 0 0}
+.hb-foot p{max-width:720px;margin-left:auto!important;margin-right:auto!important}
+footer+.hbx-shelfwrap,footer+.hb-foot{margin-top:0}
+.hbx-shelfwrap+.hb-foot{margin-top:0}
+
+</style>
+
+<link rel="icon" type="image/png" href="hive-bee.png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="hbx-top"><div class="hb-bar"><a href="https://webercountyhive.substack.com/" target="_blank" rel="noopener"><img src="uhp-badge.png" alt="Utah Hive Politics logo"><span><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-line-top">The people's publication. We investigate what's best for the public as a whole, not any party or special interest.</span></span></a></div>
+<div class="hbx-slim"><span>UIPA · UI 100.05</span><span><a href="index.html">← UIPA Investigation Series</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">← Hive library (every repo)</a></span></div></div>
+<header class="case-header">
+  <div class="case-wrap">
+    <p class="case-eyebrow">CASE FILE · WHO DECIDES SERIES · PART 4 · UI 100.05</p>
+    <h1 class="case-title">Who Decides, Part 4: The Inland Port. <em>Who writes its rules, and who checks it.</em></h1>
+    <p class="case-sub">The Utah Inland Port Authority (UIPA) is a state authority run by an appointed board. Here is who sits on it, every bill that changed its powers from 2018 to 2026 with its sponsors and votes, how each change grades for the public, and the 2027 bills to watch.</p>
+    <div class="meta-row">
+      <span class="meta-pill">Agency: Utah Inland Port Authority</span>
+      <span class="meta-pill">Board: 5 voting, 3 nonvoting, appointed</span>
+      <span class="meta-pill">Bills checked: 12 UIPA bills, 2 related, 1 died</span>
+    </div>
+    <p class="pub-date">Posted Nov. 18, 2026 &middot; Updated Nov. 18, 2026</p>
+  </div>
+</header>
+<div class="up-ww"><div class="up-where"><div class="up-where-h"><div class="up-lbl">WHERE</div><div class="pl">Statewide · 16 project areas, including the Northwest Quadrant (Salt Lake City), West Weber (Weber County), Golden Spike (Box Elder County) and Tooele Valley (Tooele County)</div></div><div class="up-who"><div class="up-who-h">WHO</div><ul>
+<li><b>UIPA board</b>: 5 voting members. The governor appoints 3, the Senate president 1 and the House speaker 1 (Utah Code 11-58-302)</li>
+<li><b>Sen. Jerry Stevenson</b>: voting board member; primary sponsor of 6 of the 12 UIPA bills below, Senate sponsor of 2 more</li>
+<li><b>Abby Osborne</b>: board chair</li>
+<li><b>Ben Hart</b>: UIPA executive director</li>
+<li><b>The Legislature</b>: writes UIPA's powers; the board must review UIPA's law every year and recommend changes (2025)</li>
+<li><b>Counties and cities</b>: must give written consent before UIPA can create a project area on their land (11-58-501)</li>
+</ul></div></div></div>
+<main>
+<div class="hs-plain">New to this? <a class="hs-btn" href="who-decides-part-4-inland-port-plain.html">Read it in plain words</a> About 500 words, with two pictures.</div>
+
+<nav class="hs-parts" aria-label="Parts of this series"><p class="lab">Who Decides series · Part 4 of 8</p><ol>
+<li><a href="https://weber-county-hive.github.io/pac/who-decides-part-1-campaign-money.html">Campaign money and the caucus PACs</a></li>
+<li><a href="https://weber-county-hive.github.io/Transparency/who-decides-part-2-courts.html">The courts</a></li>
+<li><a href="https://weber-county-hive.github.io/Unelected-Power/who-decides-part-3-mida.html">MIDA</a></li>
+<li class="cur">The Inland Port (this page)</li><li>Point of the Mountain (coming)</li><li>Utah Lake Authority (coming)</li><li>PIDs, CRAs and tax increment (coming)</li><li>Side by side: every bill, graded (coming)</li></ol>
+<div class="nav"><a href="https://weber-county-hive.github.io/Unelected-Power/who-decides-part-3-mida.html">&larr; Part 3: MIDA</a><a href="https://weber-county-hive.github.io/Unelected-Power/index.html#who-decides">Series index</a></div></nav>
+
+<section class="hs-short" id="short"><h2>The short version</h2><ul>
+<li>The Legislature created the Utah Inland Port Authority in 2018. Its board is <b>appointed, not elected</b>. It now has <b>16 project areas</b> around the state.</li>
+<li>From 2018 to 2026, <b>12 bills that changed UIPA passed</b>. <b>Sen. Jerry Stevenson</b>, who sits on UIPA's board, was the primary sponsor of <b>6</b> and the Senate sponsor of <b>2</b> more. The law bars only the governor's three picks from being elected officials; it does not bar the Senate president's or speaker's picks.</li>
+<li>On its own land, UIPA receives <b>75%</b> of the growth in property tax for 25 years, and its board can add up to 15. In other project areas it can receive <b>up to 75%</b>, set by the board (11-58-601).</li>
+<li>Some changes reduced what owners and the public can decide or see: owners lost the right to consent and got a 45-day window to ask to be left out (2023); business proposals can be protected records while UIPA evaluates them (2025).</li>
+<li>Some changes added public steps: a procurement policy and Executive Appropriations approval for loans (2023), a yearly review of UIPA's law (2025), and disclosure before tax increment deals and bonds (2026, S.B. 206).</li>
+<li>2024 barred distribution centers on contaminated land. 2025 allowed them if a private landowner owns the land.</li>
+<li>Four of the bills became public with <b>7 to 17 days</b> left in the session.</li>
+</ul><p class="up-short-more"><a href="who-decides-part-4-inland-port-plain.html">Read the plain-words version →</a></p></section>
+
+<nav class="hs-toc" aria-label="On this page"><a href="#start">What UIPA is</a><a href="#players">Who decides</a><a href="#bills">Every bill, graded</a><a href="#scorecard">How it measures up</a><a href="#days">Time to read the bills</a><a href="#flow">How the money moves</a><a href="#right">What went right</a><a href="#y2026">2026</a><a href="#y2027">2027 to watch</a><a href="#map-sec">Map</a><a href="#people">People</a><a href="#notshown">What the records don't show</a><a href="#ask">Questions to ask</a><a href="#updates">Updates</a><a href="#related">Connected Hive work</a><a href="#words">Words to know</a><a href="#behind">Behind this piece</a><a href="#sources">Sources</a></nav>
+
+<section><h2 class="section-head" id="start">Start here: what UIPA is</h2>
+<p class="lede">The Legislature created the Utah Inland Port Authority in 2018 (S.B. 234) to develop a logistics hub in Salt Lake City's Northwest Quadrant. Since 2019, it can also create project areas in other parts of the state.</p>
+<p>Inside a project area, property owners pay the full tax rate and the county treasurer collects it. Then the agreed share of the <b>growth</b> in property tax, for the agreed term, goes to UIPA instead of to the taxing entities' budgets. UIPA uses it for roads, rail, water and other projects in the area. A county or city must give written consent before land goes into a project area (11-58-501).</p>
+<p>For a plain-language walkthrough, see <a href="weber-hive-uipa-explainer.html">What Is UIPA? (UI 100.01)</a>. The words used here are explained in <a href="#words">Words to know</a>.</p>
+</section>
+
+<section id="players"><h2 class="section-head">Who decides: the board and who appoints it</h2>
+<div class="flow">
+  <div class="flow-row three">
+    <div class="fbox pub"><div class="fh">Governor</div>Appoints 3 who are <b>not</b> elected officials: one in economic development, one in trade, one with business expertise</div>
+    <div class="fbox pub"><div class="fh">Senate president</div>Appoints 1 with "relevant business expertise"</div>
+    <div class="fbox pub"><div class="fh">House speaker</div>Appoints 1 with "relevant business expertise"</div>
+  </div>
+  <div class="arrow">▼ <span>each serves "at the pleasure of" whoever appointed them</span></div>
+  <div class="flow-row">
+    <div class="fbox main"><div class="fh">UIPA board: 5 voting members</div>Abby Osborne (chair) · Jefferson Moss · Sen. Jerry Stevenson · Jonathan Freedman · Rep. Paul Cutler<br><span style="font-size:.95rem;">Nonvoting: Jamie Barnes · Victoria Petro (Salt Lake City Council) · Bill Wyatt</span></div>
+  </div>
+  <div class="arrow">▼ <span>the board hires the staff and approves project areas, budgets and loans</span></div>
+  <div class="flow-row three">
+    <div class="fbox"><div class="fh">Staff</div>Executive Director Ben Hart</div>
+    <div class="fbox co"><div class="fh">Project areas</div>16, each with its own plan and budget</div>
+    <div class="fbox"><div class="fh">Loans</div>Need board and Executive Appropriations Committee approval (2023)</div>
+  </div>
+  <div class="diagram-caption">From Utah Code 11-58-302 (as amended by 2025 S.B. 239) and inlandportauthority.utah.gov/board (read Nov. 18, 2026). Which leader appointed which member is not shown on the board page, so it is not shown here.</div>
+</div>
+<p><b>A note on UIPA's own page:</b> the board page still describes the older layout from 2022 (two governor appointees and two nonvoting members). The law changed in 2025. This page goes by the law.</p>
+</section>
+
+<section id="bills"><h2 class="section-head">Every UIPA bill, 2018–2026, graded</h2>
+<p>These are the 12 passed bills that changed UIPA's law, two more 2026 bills that also affect UIPA, and one that died. Each card shows what the bill did (from the bill's own summary and text), its sponsors, the final votes from the Legislature's records, and a first-look grade on the Hive's rubric: is it good for the public, on <b>transparency</b>, <b>financial accountability</b> and <b>environmental impact</b>? Use the buttons to show one grade at a time.</p>
+<div class="legend-v">
+  <span class="v ok">Helps</span>
+  <span class="v part">Mixed, or a Bill-Tracker letter</span>
+  <span class="v no">Hurts</span>
+  <span class="v unk">Neutral, or needs a further look</span>
+</div>
+<div class="filters" role="group" aria-label="Filter bills by grade">
+  <button data-f="all" aria-pressed="true">All</button>
+  <button data-f="ok" aria-pressed="false">Helps</button>
+  <button data-f="part" aria-pressed="false">Mixed / letter</button>
+  <button data-f="no" aria-pressed="false">Hurts</button>
+  <button data-f="died" aria-pressed="false">Died</button>
+</div>
+<div id="claims">
+<div class="grp">Bills that passed (14)</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2018 · <a href="https://le.utah.gov/~2018/bills/static/SB0234.html" target="_blank" rel="noopener">S.B. 234</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Francis Gibson</div>
+  <span class="v part">Mixed</span>
+  <p>Created the Utah Inland Port Authority and its board, and set the land under its control (its "jurisdictional land"). Let it adopt project areas, issue bonds and receive tax differential. Required a budget, audits and reports.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 23-4-2 · House 61-11-3 · Senate agreed 20-6-3</div>
+  <div><span class="rub">Financial accountability: mixed (new taxing and bond power; audit and report rules)</span><span class="rub">Transparency: neutral</span></div>
+</div>
+<div class="claim bill ok" data-v="ok">
+  <div class="said">2018 (2nd special session) · <a href="https://le.utah.gov/~2018S2/bills/static/HB2001.html" target="_blank" rel="noopener">H.B. 2001</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Francis Gibson</b> · Other chamber: Sen. Jerry Stevenson</div>
+  <span class="v ok">Helps</span>
+  <p>Set the legal boundary of the jurisdictional land. Added sharing of tax differential with other taxing entities and to pay for city services. Changed the board, the limits on board members and the appeals panel.</p>
+  <div class="votes">Final votes (yes-no-absent): House 66-5-4 · Senate 22-2-5 · House agreed 62-5-8</div>
+  <div><span class="rub">Financial accountability +</span><span class="rub">Transparency: neutral</span></div>
+</div>
+<div class="claim bill no" data-v="no">
+  <div class="said">2019 · <a href="https://le.utah.gov/~2019/bills/static/HB0433.html" target="_blank" rel="noopener">H.B. 433</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Francis Gibson</b> · Other chamber: Sen. David Buxton</div>
+  <span class="v no">Hurts</span>
+  <p>Let UIPA adopt project areas <b>outside</b> its jurisdictional land, own and run a trade hub, be paid tax differential for an added period and receive some sales tax. Set a time limit for challenging a project area.</p>
+  <div class="votes">Final votes (yes-no-absent): House 61-11-3 · Senate 21-5-3 · House agreed 57-10-8</div>
+  <div><span class="rub">Financial accountability −</span><span class="rub">Transparency − (time limit on challenges)</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2020 · <a href="https://le.utah.gov/~2020/bills/static/HB0347.html" target="_blank" rel="noopener">H.B. 347</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Francis Gibson</b> · Other chamber: Sen. David Buxton</div>
+  <span class="v part">Mixed</span>
+  <p>Changed the tax differential rules. In the code after this bill, UIPA receives <b>75%</b> of the growth in the jurisdictional land, down from 100%. Repealed the appeals panel. Let UIPA use funds for development with reduced environmental impact and zero-emissions logistics. Added vested development rights and energy facilities as public infrastructure. Made appropriations nonlapsing.</p>
+  <div class="votes">Final votes (yes-no-absent): House 65-6-4 · Senate 25-2-2 · House agreed 67-1-7</div>
+  <div><span class="rub">Financial accountability: mixed</span><span class="rub">Environment +</span></div>
+</div>
+<div class="claim bill ok" data-v="ok">
+  <div class="said">2020 · <a href="https://le.utah.gov/~2020/bills/static/SB0112.html" target="_blank" rel="noopener">S.B. 112</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Luz Escamilla</b> · Other chamber: Rep. Francis Gibson</div>
+  <span class="v ok">Helps</span>
+  <p>Let UIPA create a community enhancement program for neighborhoods next to the port, paid with UIPA money, and report on it to legislative committees.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 28-0-1 · House 70-1-4</div>
+  <div><span class="rub">Financial accountability + (reports)</span><span class="rub">Environment + (nearby neighborhoods)</span></div>
+</div>
+<div class="claim bill no" data-v="no">
+  <div class="said">2021 · <a href="https://le.utah.gov/~2021/bills/static/SB0243.html" target="_blank" rel="noopener">S.B. 243</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Francis Gibson</div>
+  <span class="v no">Hurts</span>
+  <p>Let UIPA levy assessments and create public infrastructure districts (PIDs). Created revolving loan funds for UIPA, Point of the Mountain and MIDA. Added an Open Meetings exception for Point of the Mountain board meetings held online, and an exception to voter approval for general obligation bonds of districts whose boards are elected by property owners.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 23-5-1 · House 57-13-5 · Senate agreed 26-0-3</div>
+  <div><span class="rub">Financial accountability −</span><span class="rub">Transparency − (meetings exception)</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2022 · <a href="https://le.utah.gov/~2022/bills/static/HB0443.html" target="_blank" rel="noopener">H.B. 443</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Mike Schultz</b> · Other chamber: Sen. Jerry Stevenson</div>
+  <span class="v part">Mixed</span>
+  <p>Changed the board. Some privately owned facilities now count as public infrastructure. Tax differential may pay business recruitment incentives. Salt Lake City's share was removed from the differential under conditions, with a required revenue agreement. Allowed license plate readers in some cases.</p>
+  <div class="votes">Final votes (yes-no-absent): House 62-3-10 · Senate 28-1-0 · House agreed 72-0-3</div>
+  <div><span class="rub">Financial accountability: mixed</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2023 · <a href="https://le.utah.gov/~2023/bills/static/SB0241.html" target="_blank" rel="noopener">S.B. 241</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Mike Schultz</div>
+  <span class="v part">Mixed</span>
+  <p>Replaced the owner's <b>consent</b> to be in a project area with a right to ask to be <b>left out</b>. Required a procurement policy. Loans from the infrastructure fund need board and Executive Appropriations Committee approval, and loan forgiveness language was removed. Created remediation project areas for contaminated land, with immunity for government owners in some cases. Added UIPA to the tax-information nondisclosure rules.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 25-0-4 · House 66-4-5</div>
+  <div><span class="rub">Financial accountability +</span><span class="rub">Transparency −</span><span class="rub">Environment: mixed</span></div>
+</div>
+<div class="claim bill ok" data-v="ok">
+  <div class="said">2024 · <a href="https://le.utah.gov/~2024/bills/static/SB0264.html" target="_blank" rel="noopener">S.B. 264</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Jefferson Moss</div>
+  <span class="v ok">Helps</span>
+  <p>Barred UIPA from paying certain developer costs for public infrastructure. Barred distribution centers on contaminated land. Changed board member limits and project area notice rules. Brought UIPA under the Industrial Facilities and Development Act. Land added to a project area keeps the original base value.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 26-1-2 · House 52-13-10</div>
+  <div><span class="rub">Financial accountability +</span><span class="rub">Environment +</span><span class="rub">Notice changes: further look</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2025 · <a href="https://le.utah.gov/~2025/bills/static/SB0239.html" target="_blank" rel="noopener">S.B. 239</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Jefferson Moss</div>
+  <span class="v part">Mixed</span>
+  <p><b>Allowed distribution centers on contaminated land if a private landowner owns it</b> (a change to part of the 2024 law). A business proposal can be a protected record while it is being evaluated. The board must review UIPA's law every year. Restructured the board. UIPA may fund development on land next to a project area.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 24-0-5 · House 63-2-10</div>
+  <div><span class="rub">Transparency: mixed</span><span class="rub">Environment: mixed</span><span class="rub">Financial accountability −</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2026 · <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb225.html" target="_blank" rel="noopener">S.B. 225</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Jerry Stevenson</b> · Other chamber: Rep. Tyler Clancy</div>
+  <span class="v part">D (Bill-Tracker)</span>
+  <p>Changed the boundary process. Trigger dates (when UIPA's 25 years start for a parcel) are now set by a written order of the executive director instead of a board resolution. The water limit for using tax differential as a business incentive changed from <b>200,000 gallons a day</b> to the <b>local water provider's maximum</b>. Bill-Tracker case file: <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb225.html">S.B. 225</a>.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 20-5-4 · House 57-10-8 · Senate agreed 19-8-2</div>
+  <div><span class="rub">Environment −</span><span class="rub">Transparency − (staff order instead of board vote)</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2026 · <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html" target="_blank" rel="noopener">H.B. 507</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Calvin Roberts</b> · Other chamber: Sen. Kirk Cullimore</div>
+  <span class="v part">C− (Bill-Tracker)</span>
+  <p>Bars local governments from giving incentives to large data centers, with exceptions. Created a State Reinvestment account that UIPA pays into. Nondisclosure agreements for economic development projects can be protected records. Requires PID cost disclosure when a home is sold. No new housing and transit (HTRZ) and similar zones after Jan. 1, 2028. Bill-Tracker case file: <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html">H.B. 507</a>.</p>
+  <div class="votes">Final votes (yes-no-absent): House 69-1-5 · Senate 22-2-5</div>
+  <div><span class="rub">Transparency: mixed</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2026 · <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb206.html" target="_blank" rel="noopener">S.B. 206</a></div>
+  <div class="meta">Primary sponsor: <b>Sen. Wayne Harper</b> · Other chamber: Rep. R. Neil Walter</div>
+  <span class="v part">C (Bill-Tracker)</span>
+  <p>UIPA, MIDA, Point of the Mountain and the Fairpark district must <b>disclose before</b> they sign a tax increment deal or approve a bond, and <b>report every year</b> to a new statewide program. Bill-Tracker case file: <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb206.html">S.B. 206</a>.</p>
+  <div class="votes">Final votes (yes-no-absent): Senate 25-0-4 · House 64-1-10 · Senate agreed 26-0-3</div>
+  <div><span class="rub">Transparency +</span></div>
+</div>
+<div class="claim bill part" data-v="part">
+  <div class="said">2026 · <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb475.html" target="_blank" rel="noopener">H.B. 475</a></div>
+  <div class="meta">Primary sponsor: <b>Rep. Calvin Roberts</b> · Other chamber: Sen. Kirk Cullimore</div>
+  <span class="v part">D (Bill-Tracker)</span>
+  <p>Renamed the governor's economic office and created an Economic Development Council with seats for UIPA and others. Bill-Tracker case file: <a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb475.html">H.B. 475</a>.</p>
+  <div class="votes">Final votes (yes-no-absent): House 61-4-10 · Senate 27-2</div>
+  <div><span class="rub">Local say −</span></div>
+</div>
+<div class="grp">Bills that died (1)</div>
+<div class="claim bill unk" data-v="died">
+  <div class="said">2026 · <a href="https://le.utah.gov/~2026/bills/static/HB0461.html" target="_blank" rel="noopener">H.B. 461</a> (died)</div>
+  <div class="meta">Primary sponsor: <b>Rep. Raymond Ward</b></div>
+  <span class="v unk">Would have helped (transparency)</span>
+  <p>Would have required UIPA, MIDA, Point of the Mountain, the Fairpark district and the convention center zones to post tax increment data online. Filed without a vote.</p>
+</div>
+</div>
+<p style="font-size:.95rem;color:var(--ink-soft);">Grades with a letter (C, C−, D) come from the Hive's Bill-Tracker case files and are kept as published. "First look" grades can change when a bill gets a full case file. Votes are yes-no-absent, from the Legislature's bill status pages. For 2026 S.B. 225, the House record also shows an earlier 67-2-6 vote; the final passage vote is shown.</p>
+</section>
+
+<section id="scorecard"><h2 class="section-head">How it measures up</h2>
+<div class="score">
+  <div><div class="n">3</div><div class="l">Helps</div></div>
+  <div><div class="n">5</div><div class="l">Mixed</div></div>
+  <div><div class="n">2</div><div class="l">Hurts</div></div>
+  <div><div class="n">4</div><div class="l">Bill-Tracker letter (C, C−, D)</div></div>
+</div>
+<ul>
+<li><b>Transparency.</b> 2019 set a time limit for challenging a project area. 2021 added an Open Meetings exception (for Point of the Mountain). 2023 added UIPA to the tax-information nondisclosure rules. 2025 let business proposals be protected records during evaluation. 2026 S.B. 225 moved setting trigger dates from a board resolution to the executive director's written order, and 2026 H.B. 507 did the same for nondisclosure agreements. On the other side, 2025 added a yearly review of UIPA's law, and 2026 S.B. 206 added disclosure before deals and yearly reports.</li>
+<li><b>Financial accountability.</b> 2020 sent 25% of the growth in UIPA's own land back to local taxing entities. 2023 required a procurement policy and Executive Appropriations approval for loans. 2024 barred paying certain developer costs. Spending powers also grew: business recruitment incentives (2022), PIDs and assessments (2021), and funding for land next to a project area (2025).</li>
+<li><b>Environmental impact.</b> 2020 allowed spending on lower-impact development and zero-emissions logistics. 2024 barred distribution centers on contaminated land; 2025 allowed them on privately owned contaminated land. 2026 S.B. 225 replaced the 200,000-gallon daily water limit for incentives with the local water provider's limit.</li>
+<li><b>Local say.</b> Counties and cities still must consent in writing. Since 2023, landowners can't block inclusion; they can ask in writing, within 45 days, to be left out.</li>
+</ul>
+</section>
+
+<section id="days"><h2 class="section-head">Time to read the bills</h2>
+<p>How long the public had to read four of the bills, from the day the Legislature made each one public to the last day of the session (Legislature's bill data).</p>
+<table class="days"><tr><th>Bill</th><th>Made public</th><th>Session ended</th><th>Days left</th></tr>
+<tr><td>2021 S.B. 243</td><td>Feb. 26</td><td>March 5</td><td>7</td></tr>
+<tr><td>2022 H.B. 443</td><td>Feb. 18</td><td>March 4</td><td>14</td></tr>
+<tr><td>2023 S.B. 241</td><td>Feb. 14</td><td>March 3</td><td>17</td></tr>
+<tr><td>2024 S.B. 264</td><td>Feb. 19</td><td>March 1</td><td>11</td></tr>
+</table>
+<p style="font-size:.95rem;color:var(--ink-soft);">The Legislature's data doesn't show this date for the 2018–2020 or 2025–2026 bills, so they aren't listed.</p>
+</section>
+
+<section id="flow"><h2 class="section-head">How the money moves</h2>
+<div class="flow">
+  <div class="flow-row"><div class="fbox pub"><div class="fh">Property owners</div>Pay the full tax rate. The county treasurer collects it.</div></div>
+  <div class="arrow">▼ <span>the base-year amount goes to the taxing entities as usual</span></div>
+  <div class="flow-row three">
+    <div class="fbox pub"><div class="fh">Local taxing entities</div>Keep the base amount, plus at least 25% of the growth</div>
+    <div class="fbox main"><div class="fh">UIPA</div>75% of the growth on its own land; up to 75% elsewhere, set by the board · 25 years + up to 15</div>
+    <div class="fbox co"><div class="fh">State Reinvestment account</div>Certain UIPA revenue goes here (2026 H.B. 507)</div>
+  </div>
+  <div class="arrow">▼ <span>where the law lets UIPA spend it</span></div>
+  <div class="flow-row three">
+    <div class="fbox"><div class="fh">Inside the area</div>Roads, rail, water and other public infrastructure; some privately owned facilities (2022)</div>
+    <div class="fbox co"><div class="fh">Next to the area</div>Development on adjacent land (2025)</div>
+    <div class="fbox"><div class="fh">Incentives and loans</div>Business recruitment incentives (2022); infrastructure loans (2021, approval rules 2023); community enhancement (2020)</div>
+  </div>
+  <div class="diagram-caption">From Utah Code 11-58-601 to 603 and the bills listed above. Not a complete list.</div>
+</div>
+<p><b>One example, West Weber:</b> the plan sets the share at 75% to UIPA and 25% to the local taxing entities, for 25 years, with up to 15 more. Three percent of UIPA's share goes to wetland mitigation. The amended plan (June 25, 2026, 8,967.74 acres) estimates UIPA's share at about $343 million over 25 years.</p>
+</section>
+
+<section id="right"><h2 class="section-head">What went right (from the records)</h2>
+<ul>
+<li><b>Money back to local budgets.</b> Since 2020, at least 25% of the growth in UIPA's own land stays with local taxing entities.</li>
+<li><b>Neighborhood program.</b> 2020 S.B. 112 created the community enhancement program for nearby neighborhoods, with reports to legislators. It passed 28-0 and 70-1.</li>
+<li><b>Loan and spending checks.</b> 2023 required a procurement policy and Executive Appropriations approval for loans. 2024 barred paying certain developer costs.</li>
+<li><b>Contaminated land.</b> 2024 barred distribution centers on contaminated land (changed in 2025 for privately owned land).</li>
+<li><b>Yearly review.</b> Since 2025, the board must review UIPA's law every year and recommend changes to the Legislature.</li>
+<li><b>Data centers and disclosure.</b> 2026 H.B. 507 limits local data center incentives. 2026 S.B. 206 requires disclosure before tax increment deals and bonds.</li>
+<li><b>Consent.</b> A county or city must still consent in writing before UIPA creates a project area on its land.</li>
+</ul>
+</section>
+
+<section id="y2026"><h2 class="section-head">2026</h2>
+<ul class="tl">
+<li><b>March 2026</b>The Legislature passed S.B. 225, H.B. 507 and S.B. 206. UIPA's board adopted the Black Gold project area on March 16.</li>
+<li><b>June 25, 2026</b>UIPA adopted West Weber's Amendment #1 (8,967.74 acres).</li>
+<li><b>Oct. 1, 2026</b>UIPA's board heard its first presentation on a proposed West Weber public infrastructure district.</li>
+<li><b>Oct. 21, 2026</b>UIPA answered a legislative committee's questions. The Hive checked 27 of its statements (<a href="https://weber-county-hive.github.io/Unelected-Power/uipa-hearing-fact-check.html">UIPA at the Legislature</a>).</li>
+<li><b>Oct. 29–30, 2026</b>UIPA introduced "PortSLC," a new name for the Northwest Quadrant (Deseret News, KSL).</li>
+<li><b>Nov. 5, 2026</b>UIPA's board meeting was canceled.</li>
+<li><b>Nov. 18, 2026</b>Rep. Paul Cutler, a UIPA board member, presented the data center working group's 2027 goals to the same committee: data center proposals, "including those from state economic development authorities (MIDA, UIPA, etc)," must go through "the same transparent process," and local governments keep the decision.</li>
+</ul>
+</section>
+
+<section id="y2027"><h2 class="section-head">2027 to watch</h2>
+<p>The 2027 session starts Jan. 19. No bill request with "Inland Port" in its title is on the Legislature's 2027 list as of Nov. 18. These requests could affect UIPA. They are titles only, with no bill text yet, so they can't be graded. The Hive checks the list every day.</p>
+<ul>
+<li><b>Data Center Siting and Incentive Amendments</b>: Rep. Paul Cutler</li>
+<li><b>Data Center Water and Energy Use</b>: Rep. Emily Buss</li>
+<li><b>Large Data Center Amendments</b>: Economic Development and Workforce Services Interim Committee</li>
+<li><b>Tax Increment Amendments</b>: Sen. Kathleen Riebe</li>
+<li><b>Public Infrastructure District Transparency Amendments</b>: Sen. Lincoln Fillmore</li>
+<li><b>Independent Entities Amendments</b>: committee bill</li>
+</ul>
+<p>The board's own yearly review of UIPA's law (required since 2025) is another place changes could come from.</p>
+</section>
+
+<section id="map-sec"><h2 class="section-head">Map: UIPA's project areas</h2>
+<div id="map" role="region" aria-label="Map of UIPA project areas"></div>
+<p style="font-size:.92rem;color:var(--ink-soft);">Pins are approximate, placed at the city or county named in each plan, not the parcels. Pinned: 8 areas whose location we confirmed in UIPA's plans. Not pinned yet: Black Gold, Castle Country, Central Utah Agri-Park, Greater Washington, Historic Capitol, Iron Springs, Mineral Mountains and Verk Industrial Park. Tap a pin for details.</p>
+</section>
+
+<section id="people"><h2 class="section-head">People connected to the record</h2>
+<ul>
+<li><b><a href="https://weber-county-hive.github.io/utah-senators/jerry-stevenson.html">Sen. Jerry Stevenson</a></b>: voting UIPA board member. Primary sponsor of 6 of the 12 UIPA bills above (2018, 2021, 2023, 2024, 2025, 2026) and Senate sponsor of 2 more. He is also on MIDA's board (see <a href="https://weber-county-hive.github.io/Unelected-Power/who-decides-part-3-mida.html">Part 3</a>). The law does not bar the Senate president from appointing a legislator to the board.</li>
+<li><b>Rep. Francis Gibson</b>: primary sponsor of 3 UIPA bills (2018, 2019, 2020) and House sponsor of 3 more.</li>
+<li><b>Rep. Mike Schultz</b>: primary sponsor of 2022 H.B. 443 and House sponsor of 2023 S.B. 241. He served on UIPA's board until Dec. 8, 2023.</li>
+<li><b><a href="https://weber-county-hive.github.io/Unelected-Power/jefferson-moss.html">Jefferson Moss</a></b>: voting UIPA board member; House sponsor of 2024 S.B. 264 and 2025 S.B. 239.</li>
+<li><b>Rep. Paul Cutler</b>: voting UIPA board member; leads the 2027 data center bill request.</li>
+<li><b>Abby Osborne</b>: board chair. <b>Jonathan Freedman</b>: voting member.</li>
+<li><b>Victoria Petro</b>: nonvoting member for the Salt Lake City Council.</li>
+<li><b>Ben Hart</b>: UIPA executive director.</li>
+<li><b>Sen. Luz Escamilla</b>: primary sponsor of the 2020 community enhancement bill.</li>
+</ul>
+</section>
+
+<section id="notshown"><h2 class="section-head">What the records don't show</h2>
+<div class="dnu"><b>Left out on purpose.</b> A $17.2 million figure in earlier research is not a UIPA finding, so it is not here. Earlier Hive research found UIPA pays $120,000 a month to a landowner in West Weber under a June 13, 2024 participation agreement; the agreement itself has not been located, so the payment stays off this page until we read it.</div>
+<ul>
+<li>Which leader appointed which board member.</li>
+<li>How often UIPA has kept a business proposal protected under the 2025 law.</li>
+<li>Which owners asked to be left out of a project area in the 45-day window.</li>
+<li>Whether the 2024 notice changes added notice or reduced it (not yet read in full).</li>
+<li>What the board's 2026 yearly review of UIPA's law found.</li>
+<li>The text of the June 13, 2024 West Weber participation agreement.</li>
+</ul>
+</section>
+
+<section id="ask"><h2 class="section-head">Questions to ask, and who to ask</h2>
+<ul class="ask-list">
+<li><strong>Sen. Stevenson and Rep. Moss (sponsors), or committee minutes:</strong> Why did the 2025 law allow distribution centers on privately owned contaminated land, a year after the 2024 law barred them?</li>
+<li><strong>UIPA's records officer:</strong> How many business proposals have been kept protected under the 2025 law?</li>
+<li><strong>UIPA staff, or board minutes:</strong> Who appointed each current voting member, and when will the board page be updated to the 2025 layout?</li>
+<li><strong>UIPA's annual report, or the Legislative Fiscal Analyst:</strong> How much has gone to the community enhancement program since 2020?</li>
+<li><strong>UIPA board minutes:</strong> Which owners asked to be left out of a project area?</li>
+<li><strong>Your state legislators:</strong> Will the 2027 data center and tax increment bills apply to UIPA project areas?</li>
+</ul>
+</section>
+
+<section><h2 class="section-head" id="updates">Updates since this was posted</h2>
+<ul class="tl"><li><b>Nov. 18, 2026</b>This page posted. Every bill's sponsors and votes were read from the Legislature's records on Nov. 18; the board list was read from UIPA's board page the same day.</li></ul>
+<p class="hs-updates">New updates will be added here with their dates. Earlier entries are not changed.</p>
+</section>
+
+<section><h2 class="section-head" id="related">Connected Hive work</h2>
+<div class="hs-cards">
+<a href="https://weber-county-hive.github.io/Unelected-Power/uipa-hearing-fact-check.html"><b>UIPA at the Legislature</b><span>Unelected Power: 27 of UIPA's Oct. 21, 2026 statements, checked</span></a>
+<a href="weber-hive-uipa-explainer.html"><b>What Is UIPA?</b><span>UIPA series: the plain-language guide</span></a>
+<a href="uipa-wetlands-warning.html"><b>What They Were Warned About</b><span>UIPA series: the West Weber wetlands</span></a>
+<a href="uipa-tooele-zenith.html"><b>"Not the Landowner, Not the Developer"</b><span>UIPA series: the Tooele Valley data center</span></a>
+<a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb225.html"><b>S.B. 225 (2026)</b><span>Bill-Tracker: the water limit change</span></a>
+<a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html"><b>H.B. 507 (2026)</b><span>Bill-Tracker: data centers and the State Reinvestment account</span></a>
+</div>
+</section>
+
+<section><h2 class="section-head" id="words">Words to know</h2>
+<p>Tap a card to see what it means.</p>
+<div class="hs-flips">
+<button class="hs-flip" aria-expanded="false"><div class="ft">Tax differential</div><div class="fh">Tap to see</div><div class="fd">UIPA's name for tax increment: the growth in property tax above a base year. Owners pay the full rate; the agreed share of the growth goes to UIPA.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Jurisdictional land</div><div class="fh">Tap to see</div><div class="fd">The land in Salt Lake City's Northwest Quadrant that the 2018 law put under UIPA. It counts as one project area.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Project area</div><div class="fh">Tap to see</div><div class="fd">Land where UIPA receives tax differential under a plan and budget. UIPA lists 16.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Trigger date</div><div class="fh">Tap to see</div><div class="fd">The date UIPA's 25 years of tax differential start for a parcel.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">PID</div><div class="fh">Tap to see</div><div class="fd">A public infrastructure district. It can borrow with bonds and charge its own property tax to pay them back. UIPA can create them (2021).</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Protected record</div><div class="fh">Tap to see</div><div class="fd">A government record the public can't get under Utah's records law (GRAMA), unless an exception applies.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Primary sponsor</div><div class="fh">Tap to see</div><div class="fd">The legislator who carries a bill in the chamber where it starts. The sponsor in the other chamber is listed beside it.</div></button>
+<button class="hs-flip" aria-expanded="false"><div class="ft">Yes-no-absent</div><div class="fh">Tap to see</div><div class="fd">How the Legislature records a vote. 70-1-4 means 70 yes, 1 no and 4 absent or not voting.</div></button>
+</div>
+</section>
+
+<section><h2 class="section-head" id="behind">Behind this piece</h2>
+<div class="hs-counter">
+  <div><div class="n">15</div><div class="l">bills read, 2018–2026 (14 passed, 1 died)</div></div>
+  <div><div class="n">12</div><div class="l">UIPA bill summaries checked line by line against the bill text</div></div>
+  <div><div class="n">1</div><div class="l">UIPA chapter of Utah Code read (Title 11, Chapter 58)</div></div>
+  <div><div class="n">9</div><div class="l">lines from earlier research fixed after the bill text didn't match</div></div>
+</div>
+<p class="hs-updates">Posted Nov. 18, 2026. Built from the Legislature's passed-bill lists, bill status pages and enrolled bills, Utah Code Title 11 Chapter 58, UIPA's board and project area pages, UIPA's project area plans, and the Hive's earlier UIPA reporting.</p>
+</section>
+
+<section id="sources" class="up-sources"><h2>Sources</h2><details class="sources-block"><summary>Sources — click to open (with links)</summary><ul>
+<li><a href="https://le.utah.gov/xcode/Title11/Chapter58/11-58.html" target="_blank" rel="noopener">Utah Code Title 11, Chapter 58 (Utah Inland Port Authority Act)</a>: sections 302, 501, 601 to 603 (read Nov. 18, 2026)</li>
+<li><a href="https://le.utah.gov/asp/passedbills/passedbills.asp?session=2026GS" target="_blank" rel="noopener">Utah Legislature, passed bills lists, 2018–2026</a> (used to find every UIPA bill)</li>
+<li><a href="https://le.utah.gov/~2018/bills/static/SB0234.html" target="_blank" rel="noopener">S.B. 234 (2018)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2018S2/bills/static/HB2001.html" target="_blank" rel="noopener">H.B. 2001 (2018 (2nd special session))</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2019/bills/static/HB0433.html" target="_blank" rel="noopener">H.B. 433 (2019)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2020/bills/static/HB0347.html" target="_blank" rel="noopener">H.B. 347 (2020)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2020/bills/static/SB0112.html" target="_blank" rel="noopener">S.B. 112 (2020)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2021/bills/static/SB0243.html" target="_blank" rel="noopener">S.B. 243 (2021)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2022/bills/static/HB0443.html" target="_blank" rel="noopener">H.B. 443 (2022)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2023/bills/static/SB0241.html" target="_blank" rel="noopener">S.B. 241 (2023)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2024/bills/static/SB0264.html" target="_blank" rel="noopener">S.B. 264 (2024)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://le.utah.gov/~2025/bills/static/SB0239.html" target="_blank" rel="noopener">S.B. 239 (2025)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb225.html" target="_blank" rel="noopener">S.B. 225 (2026)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb507.html" target="_blank" rel="noopener">H.B. 507 (2026)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-sb206.html" target="_blank" rel="noopener">S.B. 206 (2026)</a>: bill status page or case file; votes from the Legislature's records</li><li><a href="https://weber-county-hive.github.io/Bill-Tracker/weber-hive-hb475.html" target="_blank" rel="noopener">H.B. 475 (2026)</a>: bill status page or case file; votes from the Legislature's records</li>
+<li><a href="https://le.utah.gov/~2026/bills/static/HB0461.html" target="_blank" rel="noopener">H.B. 461 (2026) status</a></li>
+<li><a href="https://inlandportauthority.utah.gov/board" target="_blank" rel="noopener">UIPA, Board page</a> (read Nov. 18, 2026)</li>
+<li><a href="https://inlandportauthority.utah.gov/project-areas/" target="_blank" rel="noopener">UIPA, Project Areas page</a> (16 areas, read Nov. 18, 2026)</li>
+<li><a href="https://www.utah.gov/pmn/files/1371733.pdf" target="_blank" rel="noopener">Ancient Sky project area plan (San Juan County)</a>; <a href="https://inlandportauthority.utah.gov/wp-content/uploads/DRAFT-Skyline-Corridor-Project-Area-Plan-Amendment-4.pdf" target="_blank" rel="noopener">Skyline Corridor plan, draft Amendment 4</a>; <a href="https://www.utah.gov/pmn/files/1496029.pdf" target="_blank" rel="noopener">Pony Express plan, Amendment 3</a>; <a href="https://inlandportauthority.utah.gov/wp-content/uploads/Draft-Twenty-Wells-Project-Area-Plan-Amendment-3.pdf" target="_blank" rel="noopener">Twenty Wells plan, draft Amendment 3</a>; <a href="https://inlandportauthority.utah.gov/wp-content/uploads/Black-Gold-Project-Area-Plan-Final.pdf" target="_blank" rel="noopener">Black Gold plan (March 16, 2026)</a></li>
+<li>UIPA, West Weber Project Area Plan, Amendment #1 (June 25, 2026)</li>
+<li><a href="https://le.utah.gov/interim/2025/pdf/00004521.pdf" target="_blank" rel="noopener">UIPA 2025 Annual Report</a></li>
+<li><a href="https://le.utah.gov/interim/2026/pdf/00004171.pdf" target="_blank" rel="noopener">Rep. Paul Cutler, Data Center Working Group policy goals, Nov. 18, 2026</a></li>
+<li><a href="https://le.utah.gov/bills/billSearch.jsp?sess=2027GS&amp;sub=all" target="_blank" rel="noopener">Utah Legislature, 2027 bills and requests</a> (read Nov. 18, 2026)</li>
+<li>Deseret News and KSL, Oct. 29–30, 2026, "PortSLC"</li>
+<li><a href="https://weber-county-hive.github.io/Unelected-Power/uipa-hearing-fact-check.html">The Hive, UIPA at the Legislature</a></li>
+</ul></details></section>
+</main>
+
+<div class="hbx-shelfwrap"><div class="in"><div class="hbx-shelf" id="hbx-shelf"></div></div></div>
+<div class="hb-foot"><img src="hive-bee.png" alt=""><span class="hb-name">Utah Hive Politics</span><span class="hb-sub">from the publisher of The Weber County Hive</span><span class="hb-tag">Independent &middot; Accountability &middot; Journalism</span><p class="hb-line">The Weber County Hive and Utah Hive Politics: the people's publication. We investigate what's best for the public as a whole, not for any party or special interest group. We report public records. You decide.</p><p class="hb-tips"><a class="hb-btn" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">Send a tip</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html">Tips we checked</a><a class="hb-btn hb-btn2" href="https://weber-county-hive.github.io/-weber-county-hive-index/tips.html#send">See a mistake? Tell us</a></p><p class="hb-small">Public records, primary sources, no speculation.</p><p class="hb-small">We never name tipsters. When we correct a page, the fix and its date are shown on the page.</p><p class="hb-small"><a href="index.html">UIPA Investigation Series</a> · <a href="https://weber-county-hive.github.io/-weber-county-hive-index/">Master Index (Hive library)</a> · <a href="https://webercountyhive.substack.com/">Read on Substack</a></p></div>
+<script src="ui-shelf.js?v=2"></script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  if(!window.L) return;
+  var map=L.map('map').setView([39.6,-111.4],7);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
+  var pins=[
+    ['Northwest Quadrant / "PortSLC" (Salt Lake City)',40.78,-112.05,'UIPA\'s jurisdictional land, set by the 2018 law.'],
+    ['West Weber (Weber County)',41.24,-112.10,'Adopted May 20, 2024; Amendment #1 (8,967.74 acres) June 25, 2026.'],
+    ['Golden Spike (Box Elder County)',41.51,-112.02,'Created Aug. 21, 2023 (UIPA Resolution 2023-07).'],
+    ['Tooele Valley (Tooele County)',40.70,-112.30,'On the Great Salt Lake\'s southern shore. See the Tooele Valley case file.'],
+    ['Twenty Wells (Grantsville, northern Tooele County)',40.60,-112.46,'Adopted Dec. 5, 2023.'],
+    ['Pony Express (Fairfield, Utah County)',40.26,-112.09,'Adopted June 26, 2025.'],
+    ['Skyline Corridor (Ephraim, Gunnison, Salina)',39.36,-111.59,'Adopted Oct. 7, 2024.'],
+    ['Ancient Sky (San Juan County)',37.62,-109.48,'Adopted April 30, 2025; La Sal and Blanding areas.'],
+    ['Utah State Capitol',40.777,-111.888,'Where the Legislature writes UIPA\'s powers.']
+  ];
+  pins.forEach(function(p){
+    L.circleMarker([p[1],p[2]],{radius:11,color:'#7a1f35',fillColor:'#7a1f35',fillOpacity:.85,weight:2})
+     .addTo(map).bindPopup('<b>'+p[0]+'</b><br>'+p[3]+'<br><i>Approximate location</i>');
+  });
+})();
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.filters button'));
+  var cards=[].slice.call(document.querySelectorAll('#claims .claim'));
+  var grps=[].slice.call(document.querySelectorAll('#claims .grp'));
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    cards.forEach(function(c){c.style.display=(f==='all'||c.getAttribute('data-v')===f)?'':'none';});
+    grps.forEach(function(g){
+      var n=g.nextElementSibling, any=false;
+      while(n && !n.classList.contains('grp')){ if(n.style.display!=='none') any=true; n=n.nextElementSibling; }
+      g.style.display=any?'':'none';
+    });
+  });});
+})();
+document.querySelectorAll('.hs-flip').forEach(function(f){f.addEventListener('click',function(){f.setAttribute('aria-expanded',f.getAttribute('aria-expanded')==='true'?'false':'true');});});
+</script>
+<script data-goatcounter="https://weberhive.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -33,6 +33,16 @@ var HBX = {
       "name": "\"Not the Landowner, Not the Developer\": Tooele Valley data center"
     },
     {
+      "callNumber": "UI 100.05",
+      "slug": "who-decides-part-4-inland-port",
+      "name": "Who Decides, Part 4: The Inland Port, every bill graded"
+    },
+    {
+      "callNumber": "UI 100.06",
+      "slug": "who-decides-part-4-inland-port-plain",
+      "name": "Who Decides, Part 4, in plain words"
+    },
+    {
       "callNumber": "UI 200.01",
       "slug": "weber-hive-dc-meta-eagle-mountain",
       "name": "The Deal That Started With a Fake Name: Meta in Eagle Mountain"
